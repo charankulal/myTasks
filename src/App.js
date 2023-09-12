@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   return (
     <>
-    <div className='col-2 bg-light'>
+    <div className='col-2'>
       <Leftsection/>
     </div>
     </>

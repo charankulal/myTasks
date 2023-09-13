@@ -19,6 +19,14 @@ body.dark {
     animation: App-logo-spin infinite 20s linear;
   }
 }
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+footer{
+  margin: auto 0;
+}
 
 .App-header {
   background-color: #282c34;

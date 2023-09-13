@@ -1,19 +1,26 @@
 import "./src/DarkMode.css";
 import React from "react";
+// import CenterSection from "./CenterSection";
 
 // 1
 const setDark = () => {
-
+  
   // 2
   localStorage.setItem("theme", "dark");
+  localStorage.setItem("Number", "0");
 
   // 3
   document.documentElement.setAttribute("data-theme", "dark");
+  
+  
 };
 
 const setLight = () => {
+ 
   localStorage.setItem("theme", "light");
   document.documentElement.setAttribute("data-theme", "light");
+  localStorage.setItem("Number", "1");
+  
 };
 
 // 4
@@ -42,6 +49,7 @@ const toggleTheme = (e) => {
 const DarkMode = () => {
   return (
     <>
+
     <p className="px-4">Switch Mode</p>
     <div className="toggle-theme-wrapper">
         
@@ -59,6 +67,9 @@ const DarkMode = () => {
         <div className="slider round"></div>
       </label>
       <span>🌒</span>
+      
+       
+      
     </div>
     </>
   );

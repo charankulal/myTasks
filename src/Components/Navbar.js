@@ -16,19 +16,19 @@ export default function Navbar() {
     <nav className='nav'>
         <ul className="nav flex-column">
   <li className="nav-item ">
-  <Link className="nav-link  px-4 py-2 " to="/today">Today's Tasks</Link>
+  <Link className="nav-link" to="/today">Today's Tasks</Link>
   </li>
   <li className="nav-item">
-  <Link className="nav-link px-4 py-2" to="/">All Tasks</Link>
+  <Link className="nav-link " to="/">All Tasks</Link>
   </li>
   <li className="nav-item">
-  <Link className="nav-link  px-4 py-2" to="/">Important Tasks</Link>
+  <Link className="nav-link " to="/">Important Tasks</Link>
   </li>
   <li className="nav-item">
-  <Link className="nav-link  px-4 py-2" to="/">Completed Tasks</Link>
+  <Link className="nav-link " to="/">Completed Tasks</Link>
   </li>
   <li className="nav-item">
-  <Link className="nav-link px-4 py-2" to="/">Uncompleted Tasks</Link>
+  <Link className="nav-link" to="/">Uncompleted Tasks</Link>
   </li>
 </ul>
     </nav>

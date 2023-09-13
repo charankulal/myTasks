@@ -6,9 +6,9 @@
 }
 
 /* 2 */
-[data-theme="dark"] {
+[data-theme="dark"]  {
   --font-color: #eee;
-  --background-color: #0b0323;
+  --background-color: #0e0134;
   --link-color: lightblue;
 }
   
@@ -81,4 +81,11 @@
   .slider.round:before {
     border-radius: 50%;
   }
-  
+  @media (prefers-color-scheme: 'dark') {
+    :root {
+      /* Dark mode variables go here */
+      --font-color: #eee;
+  --background-color: #2f0d94;
+  --link-color: lightblue;
+    }
+  }

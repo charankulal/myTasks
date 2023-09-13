@@ -1,7 +1,14 @@
 .App {
   text-align: center;
 }
-
+body {
+  --color-background: #fafafa;
+  --color-foreground: #1f2023;
+}
+body.dark {
+  --color-background: #1f2023;
+  --color-foreground: #efefef;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -36,3 +43,11 @@
     transform: rotate(360deg);
   }
 }
+.center {
+  --font-color: #212020;
+  --background-color: #928b8b;
+  --link-color: cornflowerblue;
+}
+
+
+

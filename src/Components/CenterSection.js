@@ -12,7 +12,7 @@ export default function CenterSection() {
   return (
     <>
       <div className="row ">
-        <form className="d-flex col-5 my-4 nosubmit" role="search">
+        <form className="d-flex col-5 my-4 nosubmit" data-bs-theme={`${localStorage.getItem('theme')}`} role="search">
           <input
             className="form-control me-2 nosubmit"
             type="search"
@@ -36,6 +36,9 @@ export default function CenterSection() {
         <Button text="Add new task" class=" btn btn-primary "/>
         </div>
       </div>
+      <footer>
+        <span>Charan K</span>
+      </footer>
     </>
   );
 }

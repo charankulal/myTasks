@@ -1,18 +1,19 @@
 import Leftsection from './Components/Leftsection';
 import CenterSection from './Components/CenterSection';
 import RightSection from './Components/RightSection';
+import './Darkmode.css'
 import './App.css';
 
 function App() {
   return (
     <div className='row'>
-    <div className='col-2'>
+    <div className='col'>
       <Leftsection/>
     </div>
-    <div className='col-8 bg-light'>
+    <div className='col-8 px-4 center ' style={ localStorage.getItem('theme')==='dark' ? { backgroundColor:'#120340'} : {backgroundColor : 'gray'} } >
     <CenterSection/>
     </div>
-    <div className='col-2'>
+    <div className='col align-items-end'>
       <RightSection/>
     </div>
     </div>
@@ -20,3 +21,4 @@ function App() {
 }
 
 export default App;
+// data-bs-theme={`${localStorage.getItem('theme')}`}

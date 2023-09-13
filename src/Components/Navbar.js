@@ -1,26 +1,33 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Button from './Button'
+// import Button from './Button'
+import '../Styles/Navbar.css'
+import $ from 'jquery'
 
 export default function Navbar() {
-   
+  $('li').click(function(){
+    
+    $(this).removeClass('active');
+    $(this).addClass('active').siblings().removeClass('active');
+    
+});
   return (
     <nav className='nav'>
         <ul className="nav flex-column">
   <li className="nav-item ">
-  <Link className="nav-link active px-4 py-2 " to="/today"><Button text="Today's Tasks" class=" btn col-12 w-100"/></Link>
+  <Link className="nav-link  px-4 py-2 " to="/today">Today's Tasks</Link>
   </li>
   <li className="nav-item">
-  <Link className="nav-link active px-4 py-2" to="/"><Button text="All Tasks" class=" btn col-12 "/></Link>
+  <Link className="nav-link px-4 py-2" to="/">All Tasks</Link>
   </li>
   <li className="nav-item">
-  <Link className="nav-link active px-4 py-2" to="/"><Button text="Important Tasks" class=" btn col-12 "/></Link>
+  <Link className="nav-link  px-4 py-2" to="/">Important Tasks</Link>
   </li>
   <li className="nav-item">
-  <Link className="nav-link active px-4 py-2" to="/"><Button text="Completed Tasks" class=" btn col-12 "/></Link>
+  <Link className="nav-link  px-4 py-2" to="/">Completed Tasks</Link>
   </li>
   <li className="nav-item">
-  <Link className="nav-link active px-4 py-2" to="/"><Button text="Uncompleted Tasks" class=" btn col-12 "/></Link>
+  <Link className="nav-link px-4 py-2" to="/">Uncompleted Tasks</Link>
   </li>
 </ul>
     </nav>

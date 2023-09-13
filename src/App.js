@@ -11,6 +11,9 @@ function App() {
     <div className='col-7'>
     <CenterSection/>
     </div>
+    <div className='col-2'>
+      <Leftsection/>
+    </div>
     </div>
   );
 }

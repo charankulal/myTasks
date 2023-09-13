@@ -1,24 +1,37 @@
-import React from 'react'
-import '../Styles/CenterSection.css'
+import React from "react";
+import "../Styles/CenterSection.css";
 
 export default function CenterSection() {
-    const date = new Date();
+  var date = new Date().toDateString();
 
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
-    let year = date.getFullYear();
-    
-    // This arrangement can be altered based on how we want the date's format to appear.
-    let currentDate = `${day}-${month}-${year}`;
-    console.log(currentDate); // "17-6-2022"
+  const onClick = () => {
+    console.log("Clicked");
+  };
+
   return (
     <>
-     <form className="d-flex col-5 my-4 nosubmit" role="search">
-        <input className="form-control me-2 nosubmit" type="search" placeholder="Search" aria-label="Search"/>
-        
-        
-      </form>
-      <span>{date} </span>
+      <div className="row">
+        <form className="d-flex col-5 my-4 nosubmit" role="search">
+          <input
+            className="form-control me-2 nosubmit"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+        </form>
+        <span className="col-2 my-4"> {`${date}`}</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          fill="currentColor"
+          onClick={onClick}
+          className="bi bi-bell-fill col-2 my-4 mx-5 px-4 "
+          viewBox="0 0 16 16"
+        >
+          <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
+        </svg>
+      </div>
     </>
-  )
+  );
 }

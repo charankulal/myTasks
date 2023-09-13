@@ -3,15 +3,16 @@ import { Link } from 'react-router-dom'
 // import Button from './Button'
 import '../Styles/Navbar.css'
 import $ from 'jquery'
-
+import Directory from './Directory'
 export default function Navbar() {
   $('li').click(function(){
     
-    $(this).removeClass('active');
+    
     $(this).addClass('active').siblings().removeClass('active');
     
 });
   return (
+    <>
     <nav className='nav'>
         <ul className="nav flex-column">
   <li className="nav-item ">
@@ -31,5 +32,7 @@ export default function Navbar() {
   </li>
 </ul>
     </nav>
+<Directory/>
+    </>
   )
 }

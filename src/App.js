@@ -23,9 +23,9 @@ function App() {
     <div className={`col left ${isDarkMode ? 'dark-mode' : 'light-mode'}`} >
       <Leftsection/>
     </div>
-    <div className={`col-8 px-4 center ${isDarkMode ? 'dark-mode' : 'light-mode'}  min-vh-100`} >
+    <div className={`col-7 px-4 center ${isDarkMode ? 'dark-mode' : 'light-mode'}  min-vh-100`} >
     
-    <CenterSection/>
+    <CenterSection isDarkMode={isDarkMode}/>
      
      </div>
     

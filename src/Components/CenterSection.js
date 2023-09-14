@@ -1,8 +1,9 @@
 import React from "react";
 import "../Styles/CenterSection.css";
 import Button from "./Button";
+import NewTaskModal from "./NewTaskModal";
 
-export default function CenterSection() {
+export default function CenterSection(props) {
   var date = new Date().toDateString();
 
   const onClick = () => {
@@ -36,6 +37,8 @@ export default function CenterSection() {
         </svg>
         <Button text="Add new task" class=" btn btn-primary "/>
         </div>
+        <NewTaskModal isDarkMode={props.isDarkMode}/>
+
         <footer className="mt-auto fixed-bottom text-center"> 
     <p className="footer mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
               className="bi bi-github" viewBox="0 0 16 16">

@@ -2,6 +2,7 @@ import React from "react";
 import "../Styles/NewTaskModal.css"
 
 export default function NewTaskModal(props) {
+  
   return (
     <>
       <button
@@ -41,7 +42,7 @@ export default function NewTaskModal(props) {
             <div className="modal-body">
               <form>
                 <div className="mb-3">
-                  <label for="recipient-name" className="col-form-label">
+                  <label for="task-name" className="col-form-label">
                     Title
                   </label>
                   <input
@@ -51,24 +52,60 @@ export default function NewTaskModal(props) {
                     placeholder="Eg : Study for the exam"
                   />
                 </div>
+
                 <div className="mb-3">
-                  <label for="message-text" className="col-form-label">
-                    Message:
+                  <label for="task-date" className="col-form-label">
+                    Date
+                  </label>
+                  <input
+                    type="datetime-local"
+                    className="form-control"
+                    id="date"
+                    placeholder="DD-MM-YYYY"
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <label for="task-description" className="col-form-label">
+                    Description (Optional)
                   </label>
                   <textarea
+                    type="text-area"
                     className="form-control"
-                    id="message-text"
-                  ></textarea>
+                    id="description"
+                    placeholder="Eg : Study for the exam"
+                  />
                 </div>
+
+                <div className="mb-3">
+                  <label for="task-directory" className="col-form-label">
+                    Select a directory
+                  </label>
+                  <select className="form-control">
+                    <option value="">Main</option>
+                    
+                    </select>
+                </div>
+
+                <div className="mb-3 input-group mx-3">
+                <input className="mx-3 checkbox" type="checkbox" value="" />
+  
+                <span className="text">Mark as important</span>
+  </div>
+  <div className="mb-3 input-group mx-3">
+                <input className="mx-3 checkbox" type="checkbox" value="" />
+  
+                <span className="text">Mark as Completed</span>
+  </div>
               </form>
             </div>
-            <div className="modal-footer">
+            <div className="modal-footer justify-content-center">
               <button
                 type="button"
                 className="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
-                Close
+                Add Task
               </button>
             </div>
           </div>

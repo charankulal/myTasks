@@ -51,6 +51,12 @@ footer{
     transform: rotate(360deg);
   }
 }
+/* @media (min-width: 481px) and (max-width: 767px) {
+  #filters
+    {
+        display: none;
+    }
+} */
 .center.dark-mode {
   --font-color: #ce2d2d;
   --background-color: #e0cfcf;

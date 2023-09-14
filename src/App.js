@@ -19,8 +19,15 @@ function App() {
   
   return (
     <>
+    
     <div className={`row app ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
-    <div className={`col left ${isDarkMode ? 'dark-mode' : 'light-mode'}`} >
+    <button type="button" 
+        data-toggle="collapse" 
+        data-target="#filters" 
+        className="col-1 btn visible-xs visible-sm collapsed d-none"
+        >Filter</button>
+    <div className={`col left ${isDarkMode ? 'dark-mode' : 'light-mode'}`} id="filters">
+    
       <Leftsection/>
     </div>
     <div className={`col-7 px-4 center ${isDarkMode ? 'dark-mode' : 'light-mode'}  min-vh-100`} >

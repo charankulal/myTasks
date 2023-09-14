@@ -2,3 +2,9 @@
     background-color: rgb(64, 3, 90);
     color: white;
 }
+input[type="checkbox"] {
+    width: 22px;                         /* Set width */
+    height: 22px;                        /* Set height */
+    /* clip-path: circle(46% at 50% 50%);   /* Set the clip path of circle*/
+    /* border: 1px solid black;  */
+  }

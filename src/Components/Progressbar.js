@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "./Button";
+// import Button from "./Button";
 
 export default function Progressbar() {
   return (
@@ -24,7 +24,9 @@ export default function Progressbar() {
       </div>
       <hr />
       <p>No tasks today</p>
-      <Button text="Delete All data " class="btn btn-primary fixed-bottom btn-float-end w-25"/>
+      <p align="centre" style={{marginTop:"150%"}}>
+  <input type="button" className="btn no-border" value="Delete all Data" style={{cursor:"pointer"}} />
+</p>
       
     </>
   );

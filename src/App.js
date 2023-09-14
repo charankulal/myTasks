@@ -2,7 +2,7 @@ import Leftsection from './Components/Leftsection';
 import CenterSection from './Components/CenterSection';
 import RightSection from './Components/RightSection';
 import Progressbar from './Components/Progressbar';
-import Button from './Components/Button';
+// import Button from './Components/Button';
 import React, { useState } from 'react';
 import './Darkmode.css'
 import './App.css';

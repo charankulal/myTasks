@@ -51,11 +51,35 @@ footer{
     transform: rotate(360deg);
   }
 }
-.center {
-  --font-color: #212020;
-  --background-color: #928b8b;
-  --link-color: cornflowerblue;
+.center.dark-mode {
+  --font-color: #ce2d2d;
+  --background-color: #e0cfcf;
+  --link-color: rgb(171, 185, 210);
 }
 
 
 
+.app.dark-mode {
+  background-color: rgb(64, 3, 90);
+  color: white;
+}
+.center.dark-mode {
+  background-color: rgb(107, 7, 152);
+  color: white;
+}
+.right.dark-mode {
+  background-color: rgb(64, 3, 90);
+  color: white;
+}
+.app.light-mode {
+  background-color: rgb(225, 217, 228);
+  color: white;
+}
+.center.light-mode {
+  background-color: rgb(255, 255, 255);
+  color: rgb(58, 55, 55);
+}
+.right.light-mode {
+  background-color: rgb(225, 217, 228);
+  color: rgb(58, 55, 55);
+}

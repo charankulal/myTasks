@@ -1,4 +1,4 @@
-import "./src/DarkMode.css";
+import "./DarkMode.css";
 import React from "react";
 // import CenterSection from "./CenterSection";
 

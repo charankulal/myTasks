@@ -12,12 +12,13 @@ export default function CenterSection() {
   return (
     <>
       <div className="row">
-        <form className="d-flex col-5 my-4 nosubmit" data-bs-theme={`${localStorage.getItem('theme')}`} role="search">
+        <form className="d-flex col-5 my-4 nosubmit"  role="search">
           <input
             className="form-control me-2 nosubmit"
             type="search"
             placeholder="Search"
             aria-label="Search"
+            // style={{color:"red",backgroundColor:"#e0cfcf"}}
           />
         </form>
         <span className="col-3 my-4"> {`${date}`}</span>

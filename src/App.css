@@ -71,6 +71,10 @@ footer{
   background-color: rgb(64, 3, 90);
   color: white;
 }
+.left.dark-mode {
+  background-color: rgb(64, 3, 90);
+  color: white;
+}
 .app.light-mode {
   background-color: rgb(225, 217, 228);
   color: white;
@@ -80,6 +84,10 @@ footer{
   color: rgb(58, 55, 55);
 }
 .right.light-mode {
+  background-color: rgb(225, 217, 228);
+  color: rgb(58, 55, 55);
+}
+.left.light-mode {
   background-color: rgb(225, 217, 228);
   color: rgb(58, 55, 55);
 }

@@ -20,7 +20,7 @@ function App() {
   return (
     <>
     <div className={`row app ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
-    <div className='col' >
+    <div className={`col left ${isDarkMode ? 'dark-mode' : 'light-mode'}`} >
       <Leftsection/>
     </div>
     <div className={`col-8 px-4 center ${isDarkMode ? 'dark-mode' : 'light-mode'}  min-vh-100`} >

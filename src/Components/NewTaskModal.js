@@ -11,7 +11,7 @@ export default function NewTaskModal(props) {
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       >
-        Add a Task{" "}
+        Add a Task
       </button>
 
       <div
@@ -19,7 +19,7 @@ export default function NewTaskModal(props) {
           props.isDarkMode ? "dark-mode" : "light-mode"
         }`}
         id="exampleModal"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         data-bs-theme={`${
             props.isDarkMode ? "dark" : "light"
@@ -42,7 +42,7 @@ export default function NewTaskModal(props) {
             <div className="modal-body">
               <form>
                 <div className="mb-3">
-                  <label for="task-name" className="col-form-label">
+                  <label htmlFor="task-name" className="col-form-label">
                     Title
                   </label>
                   <input
@@ -54,7 +54,7 @@ export default function NewTaskModal(props) {
                 </div>
 
                 <div className="mb-3">
-                  <label for="task-date" className="col-form-label">
+                  <label htmlFor="task-date" className="col-form-label">
                     Date
                   </label>
                   <input
@@ -66,7 +66,7 @@ export default function NewTaskModal(props) {
                 </div>
 
                 <div className="mb-3">
-                  <label for="task-description" className="col-form-label">
+                  <label fhtmlForor="task-description" className="col-form-label">
                     Description (Optional)
                   </label>
                   <textarea
@@ -78,7 +78,7 @@ export default function NewTaskModal(props) {
                 </div>
 
                 <div className="mb-3">
-                  <label for="task-directory" className="col-form-label">
+                  <label htmlFor="task-directory" className="col-form-label">
                     Select a directory
                   </label>
                   <select className="form-control">

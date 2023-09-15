@@ -28,7 +28,7 @@ function App() {
         >Filter</button>
     <div className={`col left ${isDarkMode ? 'dark-mode' : 'light-mode'}`} id="filters">
     
-      <Leftsection/>
+      <Leftsection isDarkMode={isDarkMode}/>
     </div>
     <div className={`col-7 px-4 center ${isDarkMode ? 'dark-mode' : 'light-mode'}  min-vh-100`} >
     

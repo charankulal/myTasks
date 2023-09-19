@@ -31,9 +31,11 @@ input[type="checkbox"] {
     height: 200px;
     width: 200px;
     background-color: rgb(107, 7, 152);
+    border: 2px dashed rgb(160, 156, 156);
     color: white;
 }
 
 .add-task-button.dark-mode:hover {
     background-color: rgb(64, 3, 90);
+    border: 2px dashed rgb(160, 156, 156);
 }

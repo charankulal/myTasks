@@ -9,6 +9,31 @@ input[type="checkbox"] {
     /* border: 1px solid black;  */
   }
 
-/* .modal{
-    width: 50px;
-} */
+
+.add-task-button {
+    height: 200px;
+    width: 200px;
+    /* border: 2px dashed black; */
+}
+.add-task-button.light-mode{
+    height: 200px;
+    width: 200px;
+    background-color: white;
+    color: black;
+    border: 2px dashed rgb(56, 55, 55);
+}
+
+.add-task-button.light-mode:hover {
+    background-color: grey;
+    border: 2px dashed rgb(56, 55, 55);
+}
+.add-task-button.dark-mode{
+    height: 200px;
+    width: 200px;
+    background-color: rgb(107, 7, 152);
+    color: white;
+}
+
+.add-task-button.dark-mode:hover {
+    background-color: rgb(64, 3, 90);
+}

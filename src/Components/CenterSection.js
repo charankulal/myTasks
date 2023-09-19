@@ -144,7 +144,9 @@ export default function CenterSection(props) {
         </div>
       </div>
         </div>
+        <div className="row">
         <NewTaskModal isDarkMode={props.isDarkMode}/>
+        </div>
 
         <footer className="mt-auto fixed-bottom text-center"> 
     <p className="footer mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

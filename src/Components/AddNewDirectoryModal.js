@@ -4,8 +4,8 @@ import "../Styles/AddNewDirectoryModal.css"
 export default function AddNewDitectoryModal(props) {
   return (
     <>
-    <button type="button" className="btn border-dotted text-faded">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="@getbootstrap" className="bi bi-plus" viewBox="0 0 16 16">
+    <button type="button" className="btn border-dotted text-faded" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="@getbootstrap" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-plus" viewBox="0 0 16 16" >
   <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
 </svg>
                 New
@@ -14,7 +14,10 @@ export default function AddNewDitectoryModal(props) {
 
 <div className={`modal fade ${
           props.isDarkMode ? "dark-mode" : "light-mode"
-        }`} id="exampleModal1" tabIndex="-1"  aria-hidden="true">
+        }`} id="exampleModal1" tabIndex="-1"  aria-hidden="true"
+        data-bs-theme={`${
+          props.isDarkMode ? "dark" : "light"
+        }`}>
   <div className="modal-dialog modal-dialog-centered">
     <div className="modal-content">
       <div className="modal-header">

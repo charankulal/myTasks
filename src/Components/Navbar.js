@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import '../Styles/Navbar.css'
 import $ from 'jquery'
 import Directory from './Directory'
-export default function Navbar() {
+export default function Navbar(props) {
   $('li').click(function(){
     
     
@@ -32,7 +32,7 @@ export default function Navbar() {
   </li>
 </ul>
     </nav>
-<Directory/>
+<Directory isDarkMode={props.isDarkMode}/>
     </>
   )
 }

@@ -7,11 +7,11 @@ import UncompletedTasks from "./UncompletedTasks";
 import ImportantTasks from "./ImportantTasks";
 import Navbar from "./Navbar";
 
-export default function Navigation() {
+export default function Navigation(props) {
   return (
     
       <BrowserRouter>
-      <Navbar/>
+      <Navbar isDarkMode={props.isDarkMode}/>
         <Routes>
           
           <Route exact path="/" element={<TodayTasks />}/>

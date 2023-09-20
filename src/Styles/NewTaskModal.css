@@ -24,18 +24,18 @@ input[type="checkbox"] {
 }
 
 .add-task-button.light-mode:hover {
-    background-color: grey;
+    background-color: rgb(183, 183, 183);
     border: 2px dashed rgb(56, 55, 55);
 }
 .add-task-button.dark-mode{
     height: 200px;
     width: 200px;
-    background-color: rgb(107, 7, 152);
+    background-color: rgb(28, 28, 28);
     border: 2px dashed rgb(160, 156, 156);
     color: white;
 }
 
 .add-task-button.dark-mode:hover {
-    background-color: rgb(64, 3, 90);
+    background-color: rgb(53, 53, 53);
     border: 2px dashed rgb(160, 156, 156);
 }

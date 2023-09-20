@@ -66,19 +66,19 @@ footer{
 
 
 .app.dark-mode {
-  background-color: rgb(64, 3, 90);
+  background-color: rgb(18, 18, 18);
   color: white;
 }
 .center.dark-mode {
-  background-color: rgb(107, 7, 152);
+  background-color: rgb(41, 36, 36);
   color: white;
 }
 .right.dark-mode {
-  background-color: rgb(64, 3, 90);
+  background-color: rgb(18, 18, 18);
   color: white;
 }
 .left.dark-mode {
-  background-color: rgb(64, 3, 90);
+  background-color: rgb(18, 18, 18);
   color: white;
 }
 .app.light-mode {

@@ -15,9 +15,11 @@ export default function CenterSection(props) {
       <div className="row d-flex">
         <form className="d-flex col-5 my-4 nosubmit" role="search">
           <input
-            className="form-control me-2 nosubmit"
+            className={`form-control me-2 nosubmit ${
+              props.isDarkMode ? "dark-mode" : "light-mode"
+            }`}
             type="search"
-            placeholder="Search"
+            placeholder="Search Task"
             aria-label="Search"
             // style={{color:"red",backgroundColor:"#e0cfcf"}}
           />

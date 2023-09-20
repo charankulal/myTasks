@@ -68,7 +68,7 @@ export default function NewTaskModal(props) {
                 </div>
 
                 <div className="mb-3">
-                  <label fhtmlForor="task-description" className="col-form-label">
+                  <label htmlFor="task-description" className="col-form-label">
                     Description (Optional)
                   </label>
                   <textarea

@@ -1,3 +1,12 @@
+/**
+ * The `CenterSection` component is a React component that renders a section in the center of the page
+ * with various elements such as a search input, date display, buttons, and a modal for adding a new
+ * task.
+ * @param props - The `props` parameter is an object that contains any properties passed to the
+ * `CenterSection` component. These properties can be accessed using dot notation, such as
+ * `props.isDarkMode`.
+ * @returns The CenterSection component is being returned.
+ */
 import React from "react";
 import "../Styles/CenterSection.css";
 import NewTaskModal from "./NewTaskModal";
@@ -8,6 +17,8 @@ export default function CenterSection(props) {
 
   const onClick = () => {
     console.log("Clicked");
+    var width = "100%";
+    console.log(width);
   };
 
   return (
@@ -15,12 +26,11 @@ export default function CenterSection(props) {
       <div className="row d-flex">
         <form className="d-flex col-5 my-4 nosubmit" role="search">
           <input
-            className={`form-control me-2 nosubmit ${
-              props.isDarkMode ? "dark-mode" : "light-mode"
-            }`}
+            className="form-control me-2 nosubmit "
             type="search"
             placeholder="Search Task"
             aria-label="Search"
+            data-bs-theme={`${props.isDarkMode ? "dark" : "light"}`}
             // style={{color:"red",backgroundColor:"#e0cfcf"}}
           />
         </form>
@@ -98,7 +108,7 @@ export default function CenterSection(props) {
 
                     <div className="mb-3">
                       <label
-                        fhtmlForor="task-description"
+                        htmlFor="task-description"
                         className="col-form-label"
                       >
                         Description (Optional)
@@ -156,7 +166,8 @@ export default function CenterSection(props) {
             </div>
           </div>
         </div>
-        <div className="d-flex my-5">
+        <div className="d-flex my-5 row">
+          <div className="col-6 align-self-start">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -164,6 +175,7 @@ export default function CenterSection(props) {
             fill="currentColor"
             className="bi bi-list-task mx-2"
             viewBox="0 0 16 16"
+            onClick={onClick}
           >
             <path
               fillRule="evenodd"
@@ -182,9 +194,20 @@ export default function CenterSection(props) {
             fill="currentColor"
             className="bi bi-grid mx-2"
             viewBox="0 0 16 16"
+            onClick={onClick}
           >
             <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
-          </svg>
+          </svg></div>
+          <div className="col-3 align-self-end" >
+          <select className="form-select sortlist" aria-label="Default select example" data-bs-theme={`${props.isDarkMode ? "dark" : "light"}`}>
+            <option defaultValue={true}>Sort by</option>
+            <option value="1">Order Added</option>
+            <option value="2">Earliest First</option>
+            <option value="3">Older First</option>
+            <option value="4">Completed First</option>
+            <option value="5">Uncompleted First</option>
+          </select>
+          </div>
         </div>
         <div className="row">
           <NewTaskModal isDarkMode={props.isDarkMode} />

@@ -2,6 +2,11 @@ import React from "react";
 import "../Styles/NewTaskModal.css"
 
 export default function NewTaskModal(props) {
+
+  const onClick=()=>{
+    console.log(props.isListView)
+    
+  }
   
   return (
     <>
@@ -9,9 +14,14 @@ export default function NewTaskModal(props) {
         type="button"
         className={`btn add-task-button ${
           props.isDarkMode ? "dark-mode" : "light-mode"
-        }`}
+        }  ${
+          props.isListView && "w-100 h-100" 
+        } `}
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
+        id="btn"
+        onClick={onClick}
+       
       >
         Add a Task
       </button>

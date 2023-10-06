@@ -27,7 +27,7 @@ const Card = () => {
   };
 
   return (
-    <div className="card m-3" style={{ width: " 30%" }}>
+    <div className="card m-3" style={{ width: " 30%",height:"150%"}}>
       <div className="card-body">
         <h5 className="card-title">Task 1</h5>
         <h6 className="card-subtitle mb-2 text-body-secondary">

@@ -14,10 +14,8 @@ input[type="checkbox"] {
 
   }
 
-
-
 .add-task-button.light-mode{
-    height: 300%;
+    height: 250%;
     width: 30%;
     margin: 2%;
     background-color: white;
@@ -30,7 +28,7 @@ input[type="checkbox"] {
     border: 2px dashed rgb(56, 55, 55);
 }
 .add-task-button.dark-mode{
-    height: 300%;
+    height: 250%;
     width: 30%;
     margin: 2%;
     background-color: rgb(28, 28, 28);

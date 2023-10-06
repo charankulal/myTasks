@@ -11,6 +11,7 @@ import React ,{useState} from "react";
 import "../Styles/CenterSection.css";
 import NewTaskModal from "./NewTaskModal";
 import "../Styles/NewTaskModal.css";
+import Card from "./Card";
 
 export default function CenterSection(props) {
   var date = new Date().toDateString();
@@ -216,6 +217,7 @@ setlist(false)
           </select>
           </div>
         </div>
+        <Card/>
         <div className="row centersectiontasklist">
           <NewTaskModal isDarkMode={props.isDarkMode} isListView={list}/>
           

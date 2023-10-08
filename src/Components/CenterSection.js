@@ -1,14 +1,14 @@
-
 import React, { useState } from "react";
 import "../Styles/CenterSection.css";
 import NewTaskModal from "./NewTaskModal";
 import "../Styles/NewTaskModal.css";
 import Card from "./Card";
+import { useContext, useEffect, useRef } from "react";
+import NotesContext from "../context/NotesContext.js";
 
 export default function CenterSection(props) {
- 
 
-
+  const { tasks, setTasks } = useContext(NotesContext);
 
   var date = new Date().toDateString();
   const [list, setlist] = useState(false);
@@ -21,9 +21,6 @@ export default function CenterSection(props) {
   const gridView = () => {
     setlist(false);
   };
-  
-
-
 
   return (
     <>
@@ -107,7 +104,6 @@ export default function CenterSection(props) {
                         className="form-control"
                         id="date"
                         placeholder="DD-MM-YYYY"
-
                       />
                     </div>
 
@@ -153,8 +149,7 @@ export default function CenterSection(props) {
                         type="checkbox"
                         value=""
                         name="eimportance"
-                    // onChange={onChange}
-                        
+                        // onChange={onChange}
                       />
 
                       <span className="text">Mark as Completed</span>
@@ -222,12 +217,11 @@ export default function CenterSection(props) {
             </select>
           </div>
         </div>
-
-
-              {/* <Card id={tasks.id} updateTask={updateTask} task={tasks} /> */}
+        {tasks.map((task) => {
+          return tasks.title;
+        })}
 
         <Card isListView={list} isDarkMode={props.isDarkMode} />
-        
 
         <span className="col">
           <NewTaskModal isDarkMode={props.isDarkMode} isListView={list} />

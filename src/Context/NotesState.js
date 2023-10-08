@@ -4,8 +4,8 @@ import NotesContext from "./NotesContext";
 
 
 const NotesState = (props) => {
-    const host = "https://tasks.free.beeceptor.com";
-    const notesInitial = [
+  
+    const tasksInitial = [
         {
           title: "Task 1",
           important: false,
@@ -35,61 +35,8 @@ const NotesState = (props) => {
         },
       ];
   
-    const [tasks, setTasks] = useState(notesInitial);
+    const [tasks, setTasks] = useState(tasksInitial);
   
-    // Get all notes
-    const getAllTasks = async () => {
-      var response = await fetch(`${host}/api/fetchalltasks`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      var json = await response.json();
-  
-      console.log("response is ", json);
-      setTasks(json);
-    };
-    // // Add a note
-  
-    // const addTask = async (title, description, tag) => {
-    //   //TODO:API call
-    //   // API Call
-    //   const response = await fetch(`${host}/api/notes/addnote`, {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       "auth-token": localStorage.getItem("token"),
-    //     },
-    //     body: JSON.stringify({ title, description, tag }),
-    //   });
-  
-    //   const note = await response.json();
-    //   setTasks(tasks.concat(note));
-    //   props.showAlert("Created Notes successfully", "success");
-    // };
-  
-    // // Delete a note
-    // const deleteTask = async (id) => {
-    //   //API call
-    //   const response = await fetch(`${host}/api/notes/deletenote/${id}`, {
-    //     method: "DELETE",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       "auth-token": localStorage.getItem("token"),
-    //     },
-    //   });
-    //   var json = response.json();
-    //   console.log(json);
-  
-    //   //Logic to delete node
-    //   console.log("Deleting the note with id" + id);
-    //   let newNotes = tasks.filter((note) => {
-    //     return note._id !== id;
-    //   });
-    //   setTasks(newNotes);
-    //   props.showAlert("Deleted a note successfully", "danger");
-    // };
   
     // //Edit a note
     // const editTask = async (id, title, description, tag) => {
@@ -123,14 +70,11 @@ const NotesState = (props) => {
       <NotesContext.Provider
         value={{
           tasks,
-        //   addTask,
-        //   deleteTask,
-        //   editTask,
-          getAllTasks,
+          setTasks
+
         }}
       >
-        {" "}
-        {props.children}{" "}
+{props.children}
       </NotesContext.Provider>
     );
   };

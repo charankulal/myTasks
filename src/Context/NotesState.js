@@ -4,7 +4,7 @@ import NotesContext from "./NotesContext";
 
 
 const NotesState = (props) => {
-  
+
     const tasksInitial = [
         {
           title: "Task 1",
@@ -38,33 +38,6 @@ const NotesState = (props) => {
     const [tasks, setTasks] = useState(tasksInitial);
   
   
-    // //Edit a note
-    // const editTask = async (id, title, description, tag) => {
-    //   //API Call
-  
-    //   const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
-    //     method: "PUT",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       "auth-token": localStorage.getItem("token"),
-    //     },
-  
-    //     body: JSON.stringify({ title, description, tag }),
-    //   });
-    //   const json = response.json();
-    //   console.log(json);
-  
-    //   //Logic to edit a note
-    //   for (let index = 0; index < tasks.length; index++) {
-    //     let element = tasks[index];
-    //     if (element._id === id) {
-    //       element.title = title;
-    //       element.description = description;
-    //       element.tag = tag;
-    //     }
-    //   }
-    //   props.showAlert("Edited the note successfully", "success");
-    // };
   
     return (
       <NotesContext.Provider

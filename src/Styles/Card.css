@@ -23,3 +23,6 @@ width: max-content;
 .card.dark-mode{
     background-color: rgb(28, 28, 28);
 }
+#completed{
+    border-radius: 25px;
+}

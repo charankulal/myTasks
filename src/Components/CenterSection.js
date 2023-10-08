@@ -7,7 +7,6 @@ import { useContext, useEffect, useRef } from "react";
 import NotesContext from "../context/NotesContext.js";
 
 export default function CenterSection(props) {
-
   const { tasks, setTasks } = useContext(NotesContext);
 
   var date = new Date().toDateString();
@@ -218,12 +217,21 @@ export default function CenterSection(props) {
           </div>
         </div>
         {tasks.map((task) => {
-          return tasks.title;
+          return (
+            <Card
+              isListView={list}
+              isDarkMode={props.isDarkMode}
+              title={task.title}
+              important={task.important}
+              description={task.description}
+              date={task.date}
+              dir={task.dir}
+              completed={task.completed}
+              id={task.id}
+            />
+          );
         })}
-
-        <Card isListView={list} isDarkMode={props.isDarkMode} />
-
-        <span className="col">
+        <span className="col-8">
           <NewTaskModal isDarkMode={props.isDarkMode} isListView={list} />
         </span>
       </div>

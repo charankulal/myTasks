@@ -11,7 +11,7 @@ input[type="checkbox"] {
 
 
 .add-task-button.light-mode{
-    height: 75%;
+    height: 200%;
     width: 40%;
     margin-left: 4%;
     margin-top: 6%;
@@ -21,7 +21,7 @@ input[type="checkbox"] {
 }
 .add-task-button.light-mode.list{
     height: 100%;
-    width: 100%;
+    width: 150%;
     margin-left: 1%;
     margin-top: 0%;
     padding: 4%;

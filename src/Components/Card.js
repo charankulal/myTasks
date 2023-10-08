@@ -1,9 +1,11 @@
 import React from "react";
 import $ from "jquery";
 import "../Styles/Card.css";
+import { useRef } from "react";
 
 const Card = (props) => {
-  
+  const ref = useRef(null);
+
   $(document).ready(function () {
     let i = 0;
     $(".star").on("click", function () {
@@ -32,21 +34,18 @@ const Card = (props) => {
         className={`m-3 outerborder ${props.isListView && "list"} ${
           props.isDarkMode ? "dark-mode" : "light-mode"
         }`}
-        data-bs-theme={`${
-          props.isDarkMode ? "dark" : "light"
-        }`}
-        
+        data-bs-theme={`${props.isDarkMode ? "dark" : "light"}`}
       >
         <span className="directorybutton">Main</span>
         <div className="card">
           <div className="card-body">
-            <h5 className="card-title">Task 1</h5>
+            <h5 className="card-title">{props.title}</h5>
             <h6 className="card-subtitle mb-2 text-body-secondary">
-              This is the sample task
+              {props.description}
             </h6>
             <time className="mt-auto flex w-full">
-              <i className="bi bi-calendar-check"></i>
-              05/15/2023
+              <i className="bi bi-calendar-check mx-2"></i>
+              {props.date}
             </time>
             <div className="row d-flex my-3">
               <button
@@ -55,10 +54,14 @@ const Card = (props) => {
                 id="completed"
                 onClick={changeText}
               >
-                Completed
+                {props.completed ? "Completed" : "Incomplete"}
               </button>
-              <i className="fa star fa-star-o my-2 col-2 fs-4"></i>
-              <i className="fa fa-trash my-2 col-2 fs-4" aria-hidden="true"></i>
+              <i
+                className={`fa star ${props.important ? 'fa-star':'fa-star-o'} my-2 col-2 fs-4`}
+               
+                id={`${props.id}`}
+              ></i>
+              <i className={`fa fa-trash my-2 col-2 fs-4`} aria-hidden="true"></i>
               <i className="fa fa-edit my-2 col-2 fs-4" aria-hidden="true"></i>
             </div>
           </div>

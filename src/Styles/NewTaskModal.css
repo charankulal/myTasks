@@ -8,17 +8,21 @@ input[type="checkbox"] {
     /* clip-path: circle(46% at 50% 50%);   /* Set the clip path of circle*/
     /* border: 1px solid black;  */
   }
-  .h-100{
-    height: 200% !important;
-    
 
-  }
 
 .add-task-button.light-mode{
     height: 75%;
     width: 40%;
     margin-left: 4%;
     margin-top: 6%;
+    background-color: white;
+    color: black;
+    border: 2px dashed rgb(56, 55, 55);
+}
+.add-task-button.light-mode.list{
+    height: 200%;
+    width: 100%;
+    margin: 1%;
     background-color: white;
     color: black;
     border: 2px dashed rgb(56, 55, 55);
@@ -34,6 +38,16 @@ input[type="checkbox"] {
     width: 40%;
     margin-left: 4%;
     margin-top: 6%;
+    background-color: rgb(28, 28, 28);
+    border: 2px dashed rgb(160, 156, 156);
+    color: white;
+}
+
+.add-task-button.dark-mode.list{
+    
+    height: 200%;
+    width: 100%;
+    margin: 0%;
     background-color: rgb(28, 28, 28);
     border: 2px dashed rgb(160, 156, 156);
     color: white;

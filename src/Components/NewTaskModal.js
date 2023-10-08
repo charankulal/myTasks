@@ -12,7 +12,7 @@ export default function NewTaskModal(props) {
         className={`btn add-task-button ${
           props.isDarkMode ? "dark-mode" : "light-mode"
         }  ${
-          props.isListView && "w-100 h-100" 
+          props.isListView && "list" 
         } `}
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"

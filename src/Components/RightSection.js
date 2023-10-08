@@ -3,7 +3,7 @@ import React from "react";
 export default function RightSection() {
   return (
     <>
-      <header className="row">
+      <header className="row ">
         <h5 className="col-6 my-4 ">Hii, User!</h5>
         <img
           src="https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg"

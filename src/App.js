@@ -20,7 +20,7 @@ function App() {
   return (
     <>
     
-    <div className={`row app ${isDarkMode ? 'dark-mode' : 'light-mode'} `}>
+    <div className={`row app ${isDarkMode ? 'dark-mode' : 'light-mode'} min-vh-100`}>
     <button type="button" 
         data-toggle="collapse" 
         data-target="#filters" 

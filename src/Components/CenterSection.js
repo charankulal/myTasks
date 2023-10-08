@@ -226,6 +226,18 @@ export default function CenterSection(props) {
         <Card isListView={list} isDarkMode={props.isDarkMode} />
         <Card isListView={list} isDarkMode={props.isDarkMode} />
         <Card isListView={list} isDarkMode={props.isDarkMode} />
+        <Card isListView={list} isDarkMode={props.isDarkMode} />
+        <Card isListView={list} isDarkMode={props.isDarkMode} />
+        <Card isListView={list} isDarkMode={props.isDarkMode} />
+        <Card isListView={list} isDarkMode={props.isDarkMode} />
+        <Card isListView={list} isDarkMode={props.isDarkMode} />
+        <Card isListView={list} isDarkMode={props.isDarkMode} />
+        <Card isListView={list} isDarkMode={props.isDarkMode} />
+        <Card isListView={list} isDarkMode={props.isDarkMode} />
+        <Card isListView={list} isDarkMode={props.isDarkMode} />
+        <Card isListView={list} isDarkMode={props.isDarkMode} />
+        <Card isListView={list} isDarkMode={props.isDarkMode} />
+        <Card isListView={list} isDarkMode={props.isDarkMode} />
 
         <span className="col">
           <NewTaskModal isDarkMode={props.isDarkMode} isListView={list} />

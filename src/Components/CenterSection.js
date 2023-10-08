@@ -7,7 +7,7 @@
  * `props.isDarkMode`.
  * @returns The CenterSection component is being returned.
  */
-import React ,{useState} from "react";
+import React, { useState } from "react";
 import "../Styles/CenterSection.css";
 import NewTaskModal from "./NewTaskModal";
 import "../Styles/NewTaskModal.css";
@@ -15,19 +15,16 @@ import Card from "./Card";
 
 export default function CenterSection(props) {
   var date = new Date().toDateString();
-  const [list, setlist] = useState(false)
+  const [list, setlist] = useState(false);
 
-  
+  const listView = () => {
+    setlist(true);
+    console.log(list);
+  };
 
-  const listView=()=>{
-
-    setlist(true)
-    console.log(list)
-  }
-
-  const gridView=()=>{
-setlist(false)
-  }
+  const gridView = () => {
+    setlist(false);
+  };
 
   return (
     <>
@@ -176,56 +173,65 @@ setlist(false)
         </div>
         <div className="d-flex my-5 row">
           <div className="col-6 align-self-start">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="currentColor"
-            className="bi bi-list-task mx-2"
-            viewBox="0 0 16 16"
-            onClick={listView}
-          >
-            <path
-              fillRule="evenodd"
-              d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H2zM3 3H2v1h1V3z"
-            />
-            <path d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9z" />
-            <path
-              fillRule="evenodd"
-              d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V7zM2 7h1v1H2V7zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H2zm1 .5H2v1h1v-1z"
-            />
-          </svg>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="currentColor"
-            className="bi bi-grid mx-2"
-            viewBox="0 0 16 16"
-            onClick={gridView}
-          >
-            <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
-          </svg></div>
-          <div className="col-3 align-self-end" >
-          <select className="form-select sortlist" aria-label="Default select example" data-bs-theme={`${props.isDarkMode ? "dark" : "light"}`}>
-            <option defaultValue={true}>Sort by</option>
-            <option value="1">Order Added</option>
-            <option value="2">Earliest First</option>
-            <option value="3">Older First</option>
-            <option value="4">Completed First</option>
-            <option value="5">Uncompleted First</option>
-          </select>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              className="bi bi-list-task mx-2"
+              viewBox="0 0 16 16"
+              onClick={listView}
+            >
+              <path
+                fillRule="evenodd"
+                d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H2zM3 3H2v1h1V3z"
+              />
+              <path d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9z" />
+              <path
+                fillRule="evenodd"
+                d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V7zM2 7h1v1H2V7zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H2zm1 .5H2v1h1v-1z"
+              />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              className="bi bi-grid mx-2"
+              viewBox="0 0 16 16"
+              onClick={gridView}
+            >
+              <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
+            </svg>
+          </div>
+          <div className="col-3 align-self-end">
+            <select
+              className="form-select sortlist"
+              aria-label="Default select example"
+              data-bs-theme={`${props.isDarkMode ? "dark" : "light"}`}
+            >
+              <option defaultValue={true}>Sort by</option>
+              <option value="1">Order Added</option>
+              <option value="2">Earliest First</option>
+              <option value="3">Older First</option>
+              <option value="4">Completed First</option>
+              <option value="5">Uncompleted First</option>
+            </select>
           </div>
         </div>
-        <Card/>
-        <div className="row centersectiontasklist">
-          <NewTaskModal isDarkMode={props.isDarkMode} isListView={list}/>
-          
-     
-    
-        </div>
+        <Card isListView={list} isDarkMode={props.isDarkMode} />
+        <Card isListView={list} isDarkMode={props.isDarkMode} />
+        <Card isListView={list} isDarkMode={props.isDarkMode} />
+        <Card isListView={list} isDarkMode={props.isDarkMode} />
+        <Card isListView={list} isDarkMode={props.isDarkMode} />
+        <Card isListView={list} isDarkMode={props.isDarkMode} />
+        <Card isListView={list} isDarkMode={props.isDarkMode} />
 
-        <footer className="mt-auto fixed-bottom text-center">
+        <span className="col">
+          <NewTaskModal isDarkMode={props.isDarkMode} isListView={list} />
+        </span>
+      </div>
+      {/* <footer className="mt-auto fixed-bottom text-center">
           <p className="footer mb-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -244,8 +250,7 @@ setlist(false)
               Charan-k-github
             </a>
           </p>
-        </footer>
-      </div>
+        </footer> */}
     </>
   );
 }

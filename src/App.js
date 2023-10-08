@@ -20,7 +20,7 @@ function App() {
   return (
     <>
     
-    <div className={`row app ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+    <div className={`row app ${isDarkMode ? 'dark-mode' : 'light-mode'} `}>
     <button type="button" 
         data-toggle="collapse" 
         data-target="#filters" 
@@ -30,13 +30,13 @@ function App() {
     
       <Leftsection isDarkMode={isDarkMode}/>
     </div>
-    <div className={`col-7 px-4 center ${isDarkMode ? 'dark-mode' : 'light-mode'}  min-vh-100`} >
+    <div className={`col-8 px-4 center ${isDarkMode ? 'dark-mode' : 'light-mode'} `} >
     
     <CenterSection isDarkMode={isDarkMode}/>
      
      </div>
     
-    <div className={`col align-items-end right ${isDarkMode ? 'dark-mode' : 'light-mode'}  min-vh-100`}>
+    <div className={`col align-items-end right ${isDarkMode ? 'dark-mode' : 'light-mode'}  `}>
     
       <RightSection/>
       <p className="px-4 " >Switch Mode</p>

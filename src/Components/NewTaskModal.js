@@ -3,10 +3,7 @@ import "../Styles/NewTaskModal.css"
 
 export default function NewTaskModal(props) {
 
-  const onClick=()=>{
-    console.log(props.isListView)
-    
-  }
+
   
   return (
     <>
@@ -20,7 +17,6 @@ export default function NewTaskModal(props) {
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
         id="btn"
-        onClick={onClick}
        
       >
         Add a Task

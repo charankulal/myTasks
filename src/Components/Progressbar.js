@@ -24,7 +24,7 @@ export default function Progressbar() {
       </div>
       <hr />
       <p>No tasks today</p>
-      <p align="centre" style={{marginTop:"150%"}}>
+      <p align="center" >
   <input type="button" className="btn no-border" value="Delete all Data" style={{cursor:"pointer"}} />
 </p>
       

@@ -6,6 +6,7 @@ import Progressbar from './Components/Progressbar';
 import React, { useState } from 'react';
 import './Darkmode.css'
 import './App.css';
+import NotesState from './context/NotesState';
 
 function App() {
   
@@ -18,7 +19,7 @@ function App() {
     };
   
   return (
-    <>
+    <NotesState>
     
     <div className={`row app ${isDarkMode ? 'dark-mode' : 'light-mode'} min-vh-100`}>
     <button type="button" 
@@ -62,7 +63,7 @@ function App() {
     </div>
     </div>
     
-    </>
+    </NotesState>
   );
 }
 

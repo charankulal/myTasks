@@ -1,12 +1,4 @@
-/**
- * The `CenterSection` component is a React component that renders a section in the center of the page
- * with various elements such as a search input, date display, buttons, and a modal for adding a new
- * task.
- * @param props - The `props` parameter is an object that contains any properties passed to the
- * `CenterSection` component. These properties can be accessed using dot notation, such as
- * `props.isDarkMode`.
- * @returns The CenterSection component is being returned.
- */
+
 import React, { useState } from "react";
 import "../Styles/CenterSection.css";
 import NewTaskModal from "./NewTaskModal";
@@ -14,6 +6,10 @@ import "../Styles/NewTaskModal.css";
 import Card from "./Card";
 
 export default function CenterSection(props) {
+ 
+
+
+
   var date = new Date().toDateString();
   const [list, setlist] = useState(false);
 
@@ -25,6 +21,9 @@ export default function CenterSection(props) {
   const gridView = () => {
     setlist(false);
   };
+  
+
+
 
   return (
     <>
@@ -108,6 +107,7 @@ export default function CenterSection(props) {
                         className="form-control"
                         id="date"
                         placeholder="DD-MM-YYYY"
+
                       />
                     </div>
 
@@ -152,6 +152,9 @@ export default function CenterSection(props) {
                         className="mx-3 checkbox"
                         type="checkbox"
                         value=""
+                        name="eimportance"
+                    // onChange={onChange}
+                        
                       />
 
                       <span className="text">Mark as Completed</span>
@@ -219,25 +222,12 @@ export default function CenterSection(props) {
             </select>
           </div>
         </div>
+
+
+              {/* <Card id={tasks.id} updateTask={updateTask} task={tasks} /> */}
+
         <Card isListView={list} isDarkMode={props.isDarkMode} />
-        <Card isListView={list} isDarkMode={props.isDarkMode} />
-        <Card isListView={list} isDarkMode={props.isDarkMode} />
-        <Card isListView={list} isDarkMode={props.isDarkMode} />
-        <Card isListView={list} isDarkMode={props.isDarkMode} />
-        <Card isListView={list} isDarkMode={props.isDarkMode} />
-        <Card isListView={list} isDarkMode={props.isDarkMode} />
-        <Card isListView={list} isDarkMode={props.isDarkMode} />
-        <Card isListView={list} isDarkMode={props.isDarkMode} />
-        <Card isListView={list} isDarkMode={props.isDarkMode} />
-        <Card isListView={list} isDarkMode={props.isDarkMode} />
-        <Card isListView={list} isDarkMode={props.isDarkMode} />
-        <Card isListView={list} isDarkMode={props.isDarkMode} />
-        <Card isListView={list} isDarkMode={props.isDarkMode} />
-        <Card isListView={list} isDarkMode={props.isDarkMode} />
-        <Card isListView={list} isDarkMode={props.isDarkMode} />
-        <Card isListView={list} isDarkMode={props.isDarkMode} />
-        <Card isListView={list} isDarkMode={props.isDarkMode} />
-        <Card isListView={list} isDarkMode={props.isDarkMode} />
+        
 
         <span className="col">
           <NewTaskModal isDarkMode={props.isDarkMode} isListView={list} />

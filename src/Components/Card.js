@@ -3,6 +3,7 @@ import $ from "jquery";
 import "../Styles/Card.css";
 
 const Card = (props) => {
+  
   $(document).ready(function () {
     let i = 0;
     $(".star").on("click", function () {
@@ -43,8 +44,8 @@ const Card = (props) => {
             <h6 className="card-subtitle mb-2 text-body-secondary">
               This is the sample task
             </h6>
-            <time class="mt-auto flex w-full">
-              <i class="bi bi-calendar-check"></i>
+            <time className="mt-auto flex w-full">
+              <i className="bi bi-calendar-check"></i>
               05/15/2023
             </time>
             <div className="row d-flex my-3">
@@ -57,8 +58,8 @@ const Card = (props) => {
                 Completed
               </button>
               <i className="fa star fa-star-o my-2 col-2 fs-4"></i>
-              <i class="fa fa-trash my-2 col-2 fs-4" aria-hidden="true"></i>
-              <i class="fa fa-edit my-2 col-2 fs-4" aria-hidden="true"></i>
+              <i className="fa fa-trash my-2 col-2 fs-4" aria-hidden="true"></i>
+              <i className="fa fa-edit my-2 col-2 fs-4" aria-hidden="true"></i>
             </div>
           </div>
         </div>

@@ -7,7 +7,7 @@ import { useContext, useEffect, useRef } from "react";
 import NotesContext from "../context/NotesContext.js";
 
 export default function CenterSection(props) {
-  const { tasks, setTasks } = useContext(NotesContext);
+  const { tasks, addTask } = useContext(NotesContext);
 
   var date = new Date().toDateString();
   const [list, setlist] = useState(false);
@@ -20,6 +20,26 @@ export default function CenterSection(props) {
   const gridView = () => {
     setlist(false);
   };
+  const [task,setTask]=useState({title: "",
+  important: false,
+  description: "",
+  date: "",
+  dir: "",
+  completed: false,
+  id: ""})
+ 
+
+  const handleClick=()=>{
+
+  }
+
+  const onChange=(e)=>{
+    const { value, checked } = e.target; 
+    const { important } = task; 
+
+    console.log(`${value} is ${checked}`); 
+    setTask({...task,[e.target.name]:e.target.value})
+  }
 
   return (
     <>
@@ -91,6 +111,8 @@ export default function CenterSection(props) {
                         className="form-control"
                         id="title"
                         placeholder="Eg : Study for the exam"
+                        name="title"
+                        onChange={onChange}
                       />
                     </div>
 
@@ -103,6 +125,9 @@ export default function CenterSection(props) {
                         className="form-control"
                         id="date"
                         placeholder="DD-MM-YYYY"
+                        name="date"
+                        onChange={onChange}
+                        
                       />
                     </div>
 
@@ -118,6 +143,8 @@ export default function CenterSection(props) {
                         className="form-control"
                         id="description"
                         placeholder="Eg : Study for the exam"
+                        name="description"
+                        onChange={onChange}
                       />
                     </div>
 
@@ -128,8 +155,8 @@ export default function CenterSection(props) {
                       >
                         Select a directory
                       </label>
-                      <select className="form-control">
-                        <option value="">Main</option>
+                      <select className="form-control" name="dir" onChange={onChange}>
+                        <option name value="Main" >Main</option>
                       </select>
                     </div>
 
@@ -138,6 +165,8 @@ export default function CenterSection(props) {
                         className="mx-3 checkbox"
                         type="checkbox"
                         value=""
+                        name="important"                        
+                        onChange={onChange}
                       />
 
                       <span className="text">Mark as important</span>
@@ -148,7 +177,7 @@ export default function CenterSection(props) {
                         type="checkbox"
                         value=""
                         name="eimportance"
-                        // onChange={onChange}
+                        onChange={onChange}
                       />
 
                       <span className="text">Mark as Completed</span>
@@ -160,6 +189,7 @@ export default function CenterSection(props) {
                     type="button"
                     className="btn btn-secondary"
                     data-bs-dismiss="modal"
+                    onClick={handleClick}
                   >
                     Add Task
                   </button>

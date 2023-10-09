@@ -37,7 +37,18 @@ const NotesState = (props) => {
   
     const [tasks, setTasks] = useState(tasksInitial);
 
+    //Add note
+
+    const addTask=(id,title,description,date,dir,important,completed)=>{
+
+     let task=null;
+
+     setTasks(tasks.concat(task))
+
+    }
   
+
+    // Delete note
   const deleteTask=(id)=>{
     console.log("Deleting the note with id" + id);
     let newTasks = tasks.filter((task) => {

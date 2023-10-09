@@ -235,7 +235,7 @@ export default function CenterSection(props) {
           <NewTaskModal isDarkMode={props.isDarkMode} isListView={list} />
         </span>
       </div>
-      {/* <footer className="mt-auto fixed-bottom text-center">
+      <footer className="mt-auto fixed-bottom text-center">
           <p className="footer mb-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -254,7 +254,7 @@ export default function CenterSection(props) {
               Charan-k-github
             </a>
           </p>
-        </footer> */}
+        </footer>
     </>
   );
 }

@@ -36,14 +36,23 @@ const NotesState = (props) => {
       ];
   
     const [tasks, setTasks] = useState(tasksInitial);
+
   
-  
+  const deleteTask=(id)=>{
+    console.log("Deleting the note with id" + id);
+    let newTasks = tasks.filter((task) => {
+      return task.id !== id;
+    });
+    setTasks(newTasks);
+
+  }
   
     return (
       <NotesContext.Provider
         value={{
           tasks,
-          setTasks
+          setTasks,
+          deleteTask
 
         }}
       >

@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import $ from "jquery";
 import "../Styles/Card.css";
 import { useRef } from "react";
+import NotesContext from "../context/NotesContext.js";
 
 const Card = (props) => {
+  const context=useContext(NotesContext)
+  const { deleteTask } = context
   const ref = useRef(null);
 
   $(document).ready(function () {
@@ -61,7 +64,7 @@ const Card = (props) => {
                
                 id={`${props.id}`}
               ></i>
-              <i className={`fa fa-trash my-2 col-2 fs-4`} aria-hidden="true"></i>
+              <i className={`fa fa-trash my-2 col-2 fs-4`} aria-hidden="true" onClick={()=>{deleteTask(props.id)}}></i>
               <i className="fa fa-edit my-2 col-2 fs-4" aria-hidden="true"></i>
             </div>
           </div>

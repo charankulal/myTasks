@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "../Styles/Card.css";
-import NotesContext from "../context/NotesContext.js";
+import NotesContext from "../context/NotesContext";
 
 const Card = (props) => {
   const context=useContext(NotesContext)

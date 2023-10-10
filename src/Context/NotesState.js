@@ -46,7 +46,19 @@ const NotesState = (props) => {
      setTasks(tasks.concat(task))
 
     }
-  
+    const toggleFav=(index)=>{
+      console.log("clicked")
+    let newTasks= tasks.map((ele,ind)=>{
+      if(index===ind){
+        return ({...ele,important:!ele.important})
+      }
+      return ele
+    })
+    console.log(newTasks[index])
+
+
+    setTasks(newTasks);
+    }
 
     // Delete note
   const deleteTask=(id)=>{
@@ -63,7 +75,8 @@ const NotesState = (props) => {
         value={{
           tasks,
           setTasks,
-          deleteTask
+          deleteTask,
+          toggleFav
 
         }}
       >

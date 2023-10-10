@@ -7,7 +7,7 @@ import { useContext, useEffect, useRef } from "react";
 import NotesContext from "../context/NotesContext.js";
 
 export default function CenterSection(props) {
-  const { tasks, addTask } = useContext(NotesContext);
+  const { tasks, addTask,toggleFav } = useContext(NotesContext);
 
   var date = new Date().toDateString();
   const [list, setlist] = useState(false);
@@ -32,7 +32,9 @@ export default function CenterSection(props) {
   const handleClick=()=>{
 
   }
+  // useEffect(()=>{
 
+  // },[toggleFav])
   const onChange=(e)=>{
     const { value, checked } = e.target; 
     const { important } = task; 
@@ -246,9 +248,13 @@ export default function CenterSection(props) {
             </select>
           </div>
         </div>
-        {tasks.map((task) => {
+        {tasks.map((task,index) => {
+                console.log(tasks[index].important)
+
           return (
             <Card
+            index={index}
+            toggleFav={toggleFav}
               isListView={list}
               isDarkMode={props.isDarkMode}
               title={task.title}

@@ -9,19 +9,19 @@ const Card = (props) => {
   const { deleteTask } = context
   const ref = useRef(null);
 
-  $(document).ready(function () {
-    let i = 0;
-    $(".star").on("click", function () {
-      i = i + 1;
-      if (i % 2 === 1) {
-        $(".star").removeClass("fa-star-o");
-        $(".star").addClass("fa-star");
-      } else if (i % 2 === 0) {
-        $(".star").removeClass("fa-star");
-        $(".star").addClass("fa-star-o ");
-      }
-    });
-  });
+  // $(document).ready(function () {
+  //   let i = 0;
+  //   $(".star").on("click", function () {
+  //     i = i + 1;
+  //     if (i % 2 === 1) {
+  //       $(".star").removeClass("fa-star-o");
+  //       $(".star").addClass("fa-star");
+  //     } else if (i % 2 === 0) {
+  //       $(".star").removeClass("fa-star");
+  //       $(".star").addClass("fa-star-o ");
+  //     }
+  //   });
+  // });
   const changeText = () => {
     var text = document.getElementById("completed");
     if (text.innerHTML === "Completed") {
@@ -61,7 +61,7 @@ const Card = (props) => {
               </button>
               <i
                 className={`fa star ${props.important ? 'fa-star':'fa-star-o'} my-2 col-2 fs-4`}
-               
+               onClick={()=>{props.toggleFav(props.index)}}
                 id={`${props.id}`}
               ></i>
               <i className={`fa fa-trash my-2 col-2 fs-4`} aria-hidden="true" onClick={()=>{deleteTask(props.id)}}></i>

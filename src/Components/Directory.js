@@ -9,13 +9,13 @@ export default function Directory(props) {
     $(".directory").on("click", function () {
       i = i + 1;
       if (i % 2 === 1) {
-        $("i").removeClass("bi-chevron-right");
-        $("i").addClass("bi-chevron-down");
+        $(".dir").removeClass("bi-chevron-right");
+        $(".dir").addClass("bi-chevron-down");
         document.getElementById("main").style.display = "block";
         document.getElementById("modal_button").style.display = "block";
       } else if (i % 2 === 0) {
-        $("i").removeClass("bi-chevron-down");
-        $("i").addClass("bi-chevron-right");
+        $(".dir").removeClass("bi-chevron-down");
+        $(".dir").addClass("bi-chevron-right");
         document.getElementById("main").style.display = "none";
         document.getElementById("modal_button").style.display = "none";
       }
@@ -27,7 +27,7 @@ export default function Directory(props) {
       <div className="justify-content-center  m-3">
         <div className=".fs-4 directory ">
           Directories
-          <i className="bi bi-chevron-right"></i>
+          <i className="bi dir bi-chevron-right"></i>
         </div>
 
         <p className="mx-3 main" id="main" style={{ display: "none" }}>

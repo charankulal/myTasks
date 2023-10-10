@@ -1,35 +1,10 @@
 import React, { useContext } from "react";
-import $ from "jquery";
 import "../Styles/Card.css";
-import { useRef } from "react";
 import NotesContext from "../context/NotesContext.js";
 
 const Card = (props) => {
   const context=useContext(NotesContext)
   const { deleteTask } = context
-  const ref = useRef(null);
-
-  // $(document).ready(function () {
-  //   let i = 0;
-  //   $(".star").on("click", function () {
-  //     i = i + 1;
-  //     if (i % 2 === 1) {
-  //       $(".star").removeClass("fa-star-o");
-  //       $(".star").addClass("fa-star");
-  //     } else if (i % 2 === 0) {
-  //       $(".star").removeClass("fa-star");
-  //       $(".star").addClass("fa-star-o ");
-  //     }
-  //   });
-  // });
-  const changeText = () => {
-    var text = document.getElementById("completed");
-    if (text.innerHTML === "Completed") {
-      text.innerHTML = "Not Completed";
-    } else {
-      text.innerHTML = "Completed";
-    }
-  };
 
   return (
     <>
@@ -55,7 +30,7 @@ const Card = (props) => {
                 type="button"
                 className="btn btn-primary col-6"
                 id="completed"
-                onClick={changeText}
+                onClick={()=>{props.toggleStatus(props.index)}}
               >
                 {props.completed ? "Completed" : "Incomplete"}
               </button>

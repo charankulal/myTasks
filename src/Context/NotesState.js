@@ -2,87 +2,92 @@ import React, { useState } from "react";
 
 import NotesContext from "./NotesContext";
 
-
 const NotesState = (props) => {
+  const tasksInitial = [
+    {
+      title: "Task 1",
+      important: false,
+      description: "This is the description for this task",
+      date: "2023-04-12",
+      dir: "Main",
+      completed: true,
+      id: "t1",
+    },
+    {
+      title: "Task 2",
+      important: true,
+      description: "This is the description for this task",
+      date: "2023-05-15",
+      dir: "Main",
+      completed: true,
+      id: "t2",
+    },
+    {
+      title: "Task 3",
+      important: false,
+      description: "This is the description for this task",
+      date: "2023-08-21",
+      dir: "Main",
+      completed: false,
+      id: "t3",
+    },
+  ];
 
-    const tasksInitial = [
-        {
-          title: "Task 1",
-          important: false,
-          description: "This is the description for this task",
-          date: "2023-04-12",
-          dir: "Main",
-          completed: true,
-          id: "t1",
-        },
-        {
-          title: "Task 2",
-          important: true,
-          description: "This is the description for this task",
-          date: "2023-05-15",
-          dir: "Main",
-          completed: true,
-          id: "t2",
-        },
-        {
-          title: "Task 3",
-          important: false,
-          description: "This is the description for this task",
-          date: "2023-08-21",
-          dir: "Main",
-          completed: false,
-          id: "t3",
-        },
-      ];
-  
-    const [tasks, setTasks] = useState(tasksInitial);
+  const [tasks, setTasks] = useState(tasksInitial);
 
-    //Add note
+  //Add note
 
-    const addTask=(id,title,description,date,dir,important,completed)=>{
+  // const addTask=(id,title,description,date,dir,important,completed)=>{
 
-     let task=null;
+  //  let task=null;
 
-     setTasks(tasks.concat(task))
+  //  setTasks(tasks.concat(task))
 
-    }
-    const toggleFav=(index)=>{
-      console.log("clicked")
-    let newTasks= tasks.map((ele,ind)=>{
-      if(index===ind){
-        return ({...ele,important:!ele.important})
+  // }
+  const toggleFav = (index) => {
+    let newTasks = tasks.map((ele, ind) => {
+      if (index === ind) {
+        return { ...ele, important: !ele.important };
       }
-      return ele
-    })
-    console.log(newTasks[index])
-
-
+      return ele;
+    });
     setTasks(newTasks);
-    }
+  };
 
-    // Delete note
-  const deleteTask=(id)=>{
+  const toggleStatus=(index)=>{
+    console.log(index)
+    let newTasks = tasks.map((ele, ind) => {
+      if (index === ind) {
+        return { ...ele, completed: !ele.completed };
+      }
+      return ele;
+    });
+    setTasks(newTasks);
+
+  }
+
+  // Delete note
+  const deleteTask = (id) => {
     console.log("Deleting the note with id" + id);
     let newTasks = tasks.filter((task) => {
       return task.id !== id;
     });
     setTasks(newTasks);
-
-  }
-  
-    return (
-      <NotesContext.Provider
-        value={{
-          tasks,
-          setTasks,
-          deleteTask,
-          toggleFav
-
-        }}
-      >
-{props.children}
-      </NotesContext.Provider>
-    );
   };
-  
-  export default NotesState;
+
+  return (
+    <NotesContext.Provider
+      value={{
+        tasks,
+        setTasks,
+        deleteTask,
+        toggleFav,
+        toggleStatus
+      }}
+    >
+      {props.children}
+    </NotesContext.Provider>
+  );
+};
+
+export default NotesState;

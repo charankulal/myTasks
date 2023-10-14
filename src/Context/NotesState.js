@@ -35,15 +35,25 @@ const NotesState = (props) => {
 
   const [tasks, setTasks] = useState(tasksInitial);
 
-  //Add note
+  // Add note
 
-  // const addTask=(id,title,description,date,dir,important,completed)=>{
+  const addTask=(id,title,description,date,dir,important,completed)=>{
 
-  //  let task=null;
+  let task=[{
+    id:id,
+    title : title ,
+    description : description ,
+    date : date ,
+    dir : dir ,
+    important : important ,
+    completed : completed
 
-  //  setTasks(tasks.concat(task))
+  }]
+  console.log(task)
 
-  // }
+   setTasks(tasks.concat(task))
+
+  }
   const toggleFav = (index) => {
     let newTasks = tasks.map((ele, ind) => {
       if (index === ind) {
@@ -80,6 +90,7 @@ const NotesState = (props) => {
       value={{
         tasks,
         setTasks,
+        addTask,
         deleteTask,
         toggleFav,
         toggleStatus

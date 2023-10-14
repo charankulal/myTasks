@@ -3,7 +3,7 @@ import "../Styles/CenterSection.css";
 import NewTaskModal from "./NewTaskModal";
 import "../Styles/NewTaskModal.css";
 import Card from "./Card";
-import { useContext, useEffect, useRef } from "react";
+import { useContext} from "react";
 import NotesContext from "../context/NotesContext.js";
 
 export default function CenterSection(props) {
@@ -11,6 +11,7 @@ export default function CenterSection(props) {
 
   var date = new Date().toDateString();
   const [list, setlist] = useState(false);
+
 
   const listView = () => {
     setlist(true);
@@ -20,7 +21,8 @@ export default function CenterSection(props) {
   const gridView = () => {
     setlist(false);
   };
-  const [task,setTask]=useState({title: "",
+  const [task,setTask]=useState({
+  title: "",
   important: false,
   description: "",
   date: "",
@@ -29,17 +31,10 @@ export default function CenterSection(props) {
   id: ""})
  
 
-  const handleClick=()=>{
-
-  }
-  // useEffect(()=>{
-
-  // },[toggleFav])
+const handleClick=()=>{
+  console.log("Clicked")
+}
   const onChange=(e)=>{
-    const { value, checked } = e.target; 
-    // const { important } = task; 
-
-    console.log(`${value} is ${checked}`); 
     setTask({...task,[e.target.name]:e.target.value})
   }
 
@@ -158,7 +153,9 @@ export default function CenterSection(props) {
                         Select a directory
                       </label>
                       <select className="form-control" name="dir" onChange={onChange}>
-                        <option name value="Main" >Main</option>
+                        <option>Main</option>
+                        <option >Sub</option>
+
                       </select>
                     </div>
 
@@ -166,8 +163,9 @@ export default function CenterSection(props) {
                       <input
                         className="mx-3 checkbox"
                         type="checkbox"
-                        value=""
-                        name="important"                        
+                        
+                        name="important" 
+                        id="important"                       
                         onChange={onChange}
                       />
 
@@ -177,24 +175,26 @@ export default function CenterSection(props) {
                       <input
                         className="mx-3 checkbox"
                         type="checkbox"
-                        value=""
-                        name="eimportance"
+                        id="completed"
+                    
+                        name="completed"
                         onChange={onChange}
                       />
 
                       <span className="text">Mark as Completed</span>
                     </div>
                   </form>
-                </div>
-                <div className="modal-footer justify-content-center">
+                  <div className="modal-footer justify-content-center">
                   <button
                     type="button"
                     className="btn btn-secondary"
-                    data-bs-dismiss="modal"
+                    // data-bs-dismiss="modal"
                     onClick={handleClick}
                   >
                     Add Task
                   </button>
+                </div>
+                
                 </div>
               </div>
             </div>
@@ -249,7 +249,7 @@ export default function CenterSection(props) {
           </div>
         </div>
         {tasks.map((task,index) => {
-                console.log(tasks[index].important)
+                
 
           return (
             <Card
@@ -272,7 +272,7 @@ export default function CenterSection(props) {
           <NewTaskModal isDarkMode={props.isDarkMode} isListView={list} />
         </span>
       </div>
-      <footer className="mt-auto fixed-bottom text-center">
+      {/* <footer className="mt-auto fixed-bottom text-center">
           <p className="footer mb-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -291,7 +291,7 @@ export default function CenterSection(props) {
               Charan-k-github
             </a>
           </p>
-        </footer>
+        </footer> */}
     </>
   );
 }

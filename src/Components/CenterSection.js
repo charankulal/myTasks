@@ -3,19 +3,15 @@ import "../Styles/CenterSection.css";
 import NewTaskModal from "./NewTaskModal";
 import "../Styles/NewTaskModal.css";
 import Card from "./Card";
-import { useContext} from "react";
+import { useContext } from "react";
 import NotesContext from "../context/NotesContext.js";
 // import $ from 'jquery'
 
 export default function CenterSection(props) {
-  const { tasks, addTask,toggleFav,toggleStatus } = useContext(NotesContext);
-
+  const { tasks,  toggleFav, toggleStatus } = useContext(NotesContext);
+//addTask,
   var date = new Date().toDateString();
   const [list, setlist] = useState(false);
-
-  
-
- 
 
   const listView = () => {
     setlist(true);
@@ -25,22 +21,22 @@ export default function CenterSection(props) {
   const gridView = () => {
     setlist(false);
   };
-  const [task,setTask]=useState({
-  title: "",
-  important: false,
-  description: "",
-  date: "",
-  dir: "",
-  completed: false,
-  id: ""})
- 
+  const [task, setTask] = useState({
+    title: "",
+    important: false,
+    description: "",
+    date: "",
+    dir: "",
+    completed: false,
+    id: "",
+  });
 
-const handleClick=()=>{
-  console.log("Clicked")
-}
-  const onChange=(e)=>{
-    setTask({...task,[e.target.name]:e.target.value})
-  }
+  const handleClick = () => {
+    console.log("Clicked");
+  };
+  const onChange = (e) => {
+    setTask({ ...task, [e.target.name]: e.target.value });
+  };
 
   return (
     <>
@@ -101,9 +97,7 @@ const handleClick=()=>{
                     className="btn-close"
                     data-bs-dismiss="modal1"
                     aria-label="Close"
-                  >
-                    
-                  </button>
+                  ></button>
                 </div>
                 <div className="modal-body">
                   <form>
@@ -132,7 +126,6 @@ const handleClick=()=>{
                         placeholder="DD-MM-YYYY"
                         name="date"
                         onChange={onChange}
-                        
                       />
                     </div>
 
@@ -160,10 +153,13 @@ const handleClick=()=>{
                       >
                         Select a directory
                       </label>
-                      <select className="form-control" name="dir" onChange={onChange}>
+                      <select
+                        className="form-control"
+                        name="dir"
+                        onChange={onChange}
+                      >
                         <option>Main</option>
-                        <option >Sub</option>
-
+                        <option>Sub</option>
                       </select>
                     </div>
 
@@ -171,9 +167,8 @@ const handleClick=()=>{
                       <input
                         className="mx-3 checkbox"
                         type="checkbox"
-                        
-                        name="important" 
-                        id="important"                       
+                        name="important"
+                        id="important"
                         onChange={onChange}
                       />
 
@@ -184,7 +179,6 @@ const handleClick=()=>{
                         className="mx-3 checkbox"
                         type="checkbox"
                         id="completed"
-                    
                         name="completed"
                         onChange={onChange}
                       />
@@ -192,18 +186,27 @@ const handleClick=()=>{
                       <span className="text">Mark as Completed</span>
                     </div>
                   </form>
-                  </div>
-                  <div class="modal-footer justify-content-center">
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={handleClick}>Save changes</button>
-      </div>
-                
-                
-                
-                
+                </div>
+                <div class="modal-footer justify-content-center">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-dismiss="modal"
+                    onClick={handleClick}
+                  >
+                    Add Task
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-          
         </div>
         <div className="d-flex my-5 row">
           <div className="col-6 align-self-start">
@@ -253,14 +256,12 @@ const handleClick=()=>{
             </select>
           </div>
         </div>
-        {tasks.map((task,index) => {
-                
-
+        {tasks.map((task, index) => {
           return (
             <Card
-            index={index}
-            toggleFav={toggleFav}
-            toggleStatus={toggleStatus}
+              index={index}
+              toggleFav={toggleFav}
+              toggleStatus={toggleStatus}
               isListView={list}
               isDarkMode={props.isDarkMode}
               title={task.title}

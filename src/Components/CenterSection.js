@@ -5,6 +5,7 @@ import "../Styles/NewTaskModal.css";
 import Card from "./Card";
 import { useContext} from "react";
 import NotesContext from "../context/NotesContext.js";
+// import $ from 'jquery'
 
 export default function CenterSection(props) {
   const { tasks, addTask,toggleFav,toggleStatus } = useContext(NotesContext);
@@ -12,6 +13,9 @@ export default function CenterSection(props) {
   var date = new Date().toDateString();
   const [list, setlist] = useState(false);
 
+  
+
+ 
 
   const listView = () => {
     setlist(true);
@@ -70,19 +74,21 @@ const handleClick=()=>{
             type="button"
             className="btn btn-primary text-center align-center my-4"
             data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
+            data-bs-target="#exampleModal2"
+            onClick={handleClick}
           >
             Add a Task
           </button>
 
           <div
             className={`modal fade ${
-              props.isDarkMode ? "dark-mode" : "light-mode"
+              props.isDarkMode ? "dark-mode " : "light-mode "
             }`}
-            id="exampleModal"
+            id="exampleModal2"
             tabIndex="-1"
             aria-labelledby="exampleModalLabel"
             data-bs-theme={`${props.isDarkMode ? "dark" : "light"}`}
+            aria-hidden="true"
           >
             <div className="modal-dialog">
               <div className="modal-content">
@@ -93,9 +99,11 @@ const handleClick=()=>{
                   <button
                     type="button"
                     className="btn-close"
-                    data-bs-dismiss="modal"
+                    data-bs-dismiss="modal1"
                     aria-label="Close"
-                  ></button>
+                  >
+                    
+                  </button>
                 </div>
                 <div className="modal-body">
                   <form>
@@ -184,21 +192,18 @@ const handleClick=()=>{
                       <span className="text">Mark as Completed</span>
                     </div>
                   </form>
-                  <div className="modal-footer justify-content-center">
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    // data-bs-dismiss="modal"
-                    onClick={handleClick}
-                  >
-                    Add Task
-                  </button>
-                </div>
+                  </div>
+                  <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={handleClick}>Save changes</button>
+      </div>
                 
-                </div>
+                
+                
+                
               </div>
             </div>
           </div>
+          
         </div>
         <div className="d-flex my-5 row">
           <div className="col-6 align-self-start">

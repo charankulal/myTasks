@@ -8,7 +8,7 @@ export default function Leftsection(props) {
     <>
     <h4 className='text-center my-3 text-lg' style={{paddingBottom:"6rem",paddingTop:"2rem"}}>TO-DO LIST</h4>
 
-{/* <AddNewTaskModal isDarkMode={props.isDarkMode}/> */}
+
 <Navigation isDarkMode={props.isDarkMode}/>
 
     </>

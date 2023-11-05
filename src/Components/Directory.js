@@ -2,6 +2,8 @@ import React from "react";
 // import { Link } from "react-router-dom";
 import "../Styles/Navbar.css";
 import $ from "jquery";
+import { useContext } from "react";
+import NotesContext from "../context/NotesContext.js";
 
 export default function Directory(props) {
   $(document).ready(function () {
@@ -21,6 +23,7 @@ export default function Directory(props) {
       }
     });
   });
+  const { directory } = useContext(NotesContext);
 
   return (
     <>
@@ -30,13 +33,21 @@ export default function Directory(props) {
           <i className="bi dir bi-chevron-right"></i>
         </div>
 
-        <p className="mx-3 main" id="main" style={{ display: "none" }}>
-          Main
+        
+              <p className="mx-3 main" id="main" style={{ display: "none" }}>
+              {
+          directory.map((dir)=>{
+            return(
+          <p>{dir.title}</p>
+          )
+          })
+        }
         </p>
+            
 
         <button
           type="button"
-          className="btn border-dotted text-faded"
+          className="btn border-dotted text-faded my-4"
           id="modal_button"
           data-bs-toggle="modal"
           data-bs-target="#exampleModal1"

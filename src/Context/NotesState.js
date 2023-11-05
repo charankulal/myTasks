@@ -3,12 +3,24 @@ import React, { useState } from "react";
 import NotesContext from "./NotesContext";
 
 const NotesState = (props) => {
+
+  const directoryInitial=[
+    {
+      title: "Main",
+    },
+    {
+      title: "Sub",
+    },
+  ]
+
+  const [directory, setDirectory] = useState(directoryInitial);
+
   const tasksInitial = [
     {
       title: "Task 1",
       important: false,
       description: "This is the description for this task",
-      date: "2023-04-12",
+      date: "2023-11-05",
       dir: "Main",
       completed: true,
       id: "t1",
@@ -17,7 +29,7 @@ const NotesState = (props) => {
       title: "Task 2",
       important: true,
       description: "This is the description for this task",
-      date: "2023-05-15",
+      date: "2023-11-05",
       dir: "Main",
       completed: true,
       id: "t2",
@@ -26,7 +38,7 @@ const NotesState = (props) => {
       title: "Task 3",
       important: false,
       description: "This is the description for this task",
-      date: "2023-08-21",
+      date: "2023-10-05",
       dir: "Main",
       completed: false,
       id: "t3",
@@ -34,7 +46,7 @@ const NotesState = (props) => {
   ];
 
   const [tasks, setTasks] = useState(tasksInitial);
-
+  localStorage.setItem("tasks", JSON.stringify(tasks));
   // Add a task
 
   const addTask=(id,title,description,date,dir,important,completed)=>{
@@ -52,6 +64,7 @@ const NotesState = (props) => {
   console.log(task)
 
    setTasks(tasks.concat(task))
+   localStorage.setItem("tasks", JSON.stringify(tasks));
 
   }
 
@@ -63,6 +76,7 @@ const NotesState = (props) => {
       return ele;
     });
     setTasks(newTasks);
+    localStorage.setItem("tasks", JSON.stringify(newTasks));
   };
 
   const toggleStatus=(index)=>{
@@ -74,6 +88,7 @@ const NotesState = (props) => {
       return ele;
     });
     setTasks(newTasks);
+    localStorage.setItem("tasks", JSON.stringify(newTasks));
 
   }
 
@@ -84,6 +99,7 @@ const NotesState = (props) => {
       return task.id !== id;
     });
     setTasks(newTasks);
+    localStorage.setItem("tasks", JSON.stringify(newTasks));
   };
 
   // Edit Task
@@ -101,6 +117,8 @@ const NotesState = (props) => {
       }
     }
   }
+
+
   return (
     <NotesContext.Provider
       value={{
@@ -110,7 +128,9 @@ const NotesState = (props) => {
         editTask,
         deleteTask,
         toggleFav,
-        toggleStatus
+        toggleStatus,
+        directory,
+        setDirectory
       }}
     >
       {props.children}

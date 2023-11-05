@@ -8,7 +8,9 @@ import './Darkmode.css'
 import './App.css';
 import NotesState from './context/NotesState';
 
+
 function App() {
+
   
     // Use state to track the current mode (light or dark)
     const [isDarkMode, setIsDarkMode] = useState(false);
@@ -17,6 +19,7 @@ function App() {
     const toggleDarkMode = () => {
       setIsDarkMode(!isDarkMode);
     };
+    
   
   return (
     <NotesState>

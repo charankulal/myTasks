@@ -32,7 +32,7 @@ export default function Navbar(props) {
   </li>
 </ul>
     </nav>
-<Directory isDarkMode={props.isDarkMode}/>
+{/* <Directory isDarkMode={props.isDarkMode}/> */}
     </>
   )
 }

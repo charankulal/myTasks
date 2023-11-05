@@ -13,6 +13,7 @@ export default function CenterSection(props) {
 
   const ref = useRef(null)
   var date = new Date().toDateString();
+ 
   const [list, setlist] = useState(false);
   const [id, setId] = useState(3);
 
@@ -181,7 +182,7 @@ export default function CenterSection(props) {
                         Date
                       </label>
                       <input
-                        type="datetime-local"
+                        type="date"
                         className="form-control"
                         id="date"
                         placeholder="DD-MM-YYYY"
@@ -373,7 +374,7 @@ export default function CenterSection(props) {
                       Date
                     </label>
                     <input
-                      type="datetime-local"
+                      type="date"
                       className="form-control"
                       id="edate"
                       placeholder="DD-MM-YYYY"

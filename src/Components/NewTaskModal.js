@@ -15,7 +15,7 @@ export default function NewTaskModal(props) {
           props.isListView && "list" 
         } `}
         data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
+        data-bs-target="#exampleModal2"
         id="btn"
        
       >
@@ -26,7 +26,7 @@ export default function NewTaskModal(props) {
         className={`modal fade ${
           props.isDarkMode ? "dark-mode" : "light-mode"
         }`}
-        id="exampleModal"
+        id="exampleModal2"
         tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         data-bs-theme={`${

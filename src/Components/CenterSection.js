@@ -98,7 +98,7 @@ export default function CenterSection(props) {
                   <button
                     type="button"
                     className="btn-close"
-                    data-bs-dismiss="modal1"
+                    data-bs-dismiss="modal"
                     aria-label="Close"
                   ></button>
                 </div>
@@ -190,17 +190,17 @@ export default function CenterSection(props) {
                     </div>
                   </form>
                 </div>
-                <div class="modal-footer justify-content-center">
+                <div className="modal-footer justify-content-center">
                   <button
                     type="button"
-                    class="btn btn-secondary"
+                    className="btn btn-secondary"
                     data-bs-dismiss="modal"
                   >
                     Cancel
                   </button>
                   <button
                     type="button"
-                    class="btn btn-primary"
+                    className="btn btn-primary"
                     data-bs-dismiss="modal"
                     onClick={handleClick}
                   >

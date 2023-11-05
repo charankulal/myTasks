@@ -8,10 +8,11 @@ import NotesContext from "../context/NotesContext.js";
 // import $ from 'jquery'
 
 export default function CenterSection(props) {
-  const { tasks,  toggleFav, toggleStatus } = useContext(NotesContext);
-//addTask,
+  const { tasks,addTask,  toggleFav, toggleStatus } = useContext(NotesContext);
+
   var date = new Date().toDateString();
   const [list, setlist] = useState(false);
+  const [id,setId]=useState(3)
 
   const listView = () => {
     setlist(true);
@@ -33,6 +34,8 @@ export default function CenterSection(props) {
 
   const handleClick = () => {
     console.log("Clicked");
+    addTask(id,task.title,task.description,task.date,task.dir,task.important,task.completed)
+    setId(id+1)
   };
   const onChange = (e) => {
     setTask({ ...task, [e.target.name]: e.target.value });
@@ -71,7 +74,7 @@ export default function CenterSection(props) {
             className="btn btn-primary text-center align-center my-4"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal2"
-            onClick={handleClick}
+            
           >
             Add a Task
           </button>

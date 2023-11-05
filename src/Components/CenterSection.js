@@ -45,7 +45,6 @@ export default function CenterSection(props) {
 
   const updateTask = (currentNote) => {
     ref.current.click();
-    console.log(currentNote.id);
     setTask1({
       id: currentNote.id,
       etitle: currentNote.title,
@@ -73,8 +72,8 @@ export default function CenterSection(props) {
     document.getElementById("date").value = "";
     document.getElementById("description").value = "";
     document.getElementById("dir").value = "";
-    document.getElementById("important").value = false;
-    document.getElementById("completed").value = false;
+    document.getElementById("important").checked = false;
+    document.getElementById("completed").checked = false;
   };
   const onChange = (e) => {
     setTask({ ...task, [e.target.name]: e.target.value });
@@ -85,6 +84,7 @@ export default function CenterSection(props) {
   };
 
   const handleEditClick = () => {
+
     editTask(
       task1.id,
       task1.etitle,
@@ -98,8 +98,6 @@ export default function CenterSection(props) {
     document.getElementById("edate").value = "";
     document.getElementById("edescription").value = "";
     document.getElementById("edir").value = "";
-    document.getElementById("eimportant").checked = false;
-    document.getElementById("ecompleted").checked = false;
   };
 
   return (
@@ -413,36 +411,11 @@ export default function CenterSection(props) {
                       id="edir"
                       onChange={onChange_Edit}
                       value={task1.edir}
+                      defaultValue={task1.edir}
                     >
                       <option>Main</option>
                       <option>Sub</option>
                     </select>
-                  </div>
-
-                  <div className="mb-3 input-group mx-3">
-                    <input
-                      className="mx-3 checkbox"
-                      type="checkbox"
-                      name="eimportant"
-                      id="eimportant"
-                      checked={task1.eimportant}
-                      onChange={onChange_Edit}
-                    />
-
-                    <span className="text">Mark as important</span>
-                  </div>
-                  <div className="mb-3 input-group mx-3">
-                    <input
-                      className="mx-3 checkbox"
-                      type="checkbox"
-                      id="ecompleted"
-                      name="ecompleted"
-                      checked={task1.ecompleted}
-                      value={task1.ecompleted}
-                      onChange={onChange_Edit}
-                    />
-
-                    <span className="text">Mark as Completed</span>
                   </div>
                 </form>
               </div>
@@ -458,7 +431,8 @@ export default function CenterSection(props) {
                   type="button"
                   className="btn btn-primary"
                   data-bs-dismiss="modal"
-                  onClick={handleEditClick}
+                  onClick={()=>{handleEditClick();updateTask(task1)}}
+                  
                 >
                   Edit Task
                 </button>

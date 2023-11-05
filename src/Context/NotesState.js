@@ -97,6 +97,7 @@ const NotesState = (props) => {
         element.dir = dir;
         element.important = important;
         element.completed = completed;
+        
       }
     }
   }

@@ -6,6 +6,8 @@ import CompletedTasks from "./CompletedTasks";
 import UncompletedTasks from "./UncompletedTasks";
 import ImportantTasks from "./ImportantTasks";
 import Navbar from "./Navbar";
+import CenterSection from "./CenterSection";
+
 
 export default function Navigation(props) {
   return (
@@ -14,11 +16,11 @@ export default function Navigation(props) {
       <Navbar isDarkMode={props.isDarkMode}/>
         <Routes>
           
-          <Route exact path="/" element={<TodayTasks />}/>
-            <Route exact path="/" element={<AllTasks />} />
-            <Route exact path="/" element={<ImportantTasks />} />
-            <Route exact path="/" element={<CompletedTasks />} />
-            <Route exact path="/" element={<UncompletedTasks />} />
+          <Route  path="/today" element={<TodayTasks/>}/>
+            <Route  path="/all" element={<AllTasks/> } />
+            <Route exact path="/important" element={<ImportantTasks />} />
+            <Route exact path="/completed" element={<CompletedTasks />} />
+            <Route exact path="/incomplete" element={<UncompletedTasks />} />
           
        
         </Routes>

@@ -2,11 +2,12 @@ import Leftsection from './Components/Leftsection';
 import CenterSection from './Components/CenterSection';
 import RightSection from './Components/RightSection';
 import Progressbar from './Components/Progressbar';
-// import Button from './Components/Button';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useState } from 'react';
 import './Darkmode.css'
 import './App.css';
 import NotesState from './context/NotesState';
+import Navbar from './Components/Navbar';
 
 
 function App() {
@@ -30,15 +31,49 @@ function App() {
         data-target="#filters" 
         className="col-1 btn visible-xs visible-sm collapsed d-none"
         >Filter</button>
+        <Router>
     <div className={`col left ${isDarkMode ? 'dark-mode' : 'light-mode'}`} id="filters">
     
       <Leftsection isDarkMode={isDarkMode}/>
     </div>
-    <div className={`col-8 px-4 center ${isDarkMode ? 'dark-mode' : 'light-mode'} `} >
+    <Routes>
+    <Route  path="/today" element={
+      <div className={`col-8 px-4 center ${isDarkMode ? 'dark-mode' : 'light-mode'} `} >
+        <CenterSection navlink="today" isDarkMode={isDarkMode}/>
+    </div>
+    }/>
+    <Route  path="/all" element={
+      <div className={`col-8 px-4 center ${isDarkMode ? 'dark-mode' : 'light-mode'} `} >
+        <CenterSection navlink="all" isDarkMode={isDarkMode}/>
+    </div>
+    }/>
+    <Route  path="/" element={
+      <div className={`col-8 px-4 center ${isDarkMode ? 'dark-mode' : 'light-mode'} `} >
+        <CenterSection navlink="" isDarkMode={isDarkMode}/>
+    </div>
+    }/>
+    <Route  path="/important" element={
+      <div className={`col-8 px-4 center ${isDarkMode ? 'dark-mode' : 'light-mode'} `} >
+        <CenterSection navlink="important" isDarkMode={isDarkMode}/>
+    </div>
+    }/>
+    <Route  path="/completed" element={
+      <div className={`col-8 px-4 center ${isDarkMode ? 'dark-mode' : 'light-mode'} `} >
+        <CenterSection navlink="completed" isDarkMode={isDarkMode}/>
+    </div>
+    }/>
+    <Route  path="/incomplete" element={
+      <div className={`col-8 px-4 center ${isDarkMode ? 'dark-mode' : 'light-mode'} `} >
+        <CenterSection navlink="incomplete" isDarkMode={isDarkMode}/>
+    </div>
+    }/>
+    </Routes>
     
-    <CenterSection isDarkMode={isDarkMode}/>
+    
+
+    </Router>
      
-     </div>
+    
     
     <div className={`col align-items-end right ${isDarkMode ? 'dark-mode' : 'light-mode'}  `}>
     

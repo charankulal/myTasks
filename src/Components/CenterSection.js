@@ -1,19 +1,18 @@
 import React, { useState, useRef } from "react";
 import "../Styles/CenterSection.css";
-import NewTaskModal from "./NewTaskModal";
 import "../Styles/NewTaskModal.css";
 import Card from "./Card";
 import { useContext } from "react";
-import NotesContext from "../context/NotesContext.js";
 
+import NotesContext from "../context/NotesContext.js";
 
 export default function CenterSection(props) {
   const { tasks, addTask, editTask, toggleFav, toggleStatus } =
     useContext(NotesContext);
-
-  const ref = useRef(null)
+  const array1 = [];
+  const ref = useRef(null);
   var date = new Date().toDateString();
- 
+
   const [list, setlist] = useState(false);
   const [id, setId] = useState(3);
 
@@ -21,6 +20,43 @@ export default function CenterSection(props) {
     setlist(true);
     console.log(list);
   };
+
+  if (props.navlink === "today") {
+    for (var i = 0; i < tasks.length; i++) {
+      var date2 = tasks[i].date;
+
+      var date1 = new Date().toISOString().split("T");
+
+      var compValue = date2.localeCompare(date1[0].toString());
+      console.log("Value " + compValue);
+
+      if (compValue === 0) {
+        array1.push(tasks[i]);
+      }
+    }
+  } else if (props.navlink === "" || props.navlink === "all") {
+    for (i = 0; i < tasks.length; i++) {
+      array1.push(tasks[i]);
+    }
+  } else if (props.navlink === "important") {
+    for (i = 0; i < tasks.length; i++) {
+      if (tasks[i].important === true) {
+        array1.push(tasks[i]);
+      }
+    }
+  } else if (props.navlink === "completed") {
+    for (i = 0; i < tasks.length; i++) {
+      if (tasks[i].completed === true) {
+        array1.push(tasks[i]);
+      }
+    }
+  } else if (props.navlink === "incomplete") {
+    for (i = 0; i < tasks.length; i++) {
+      if (tasks[i].completed === false) {
+        array1.push(tasks[i]);
+      }
+    }
+  }
 
   const gridView = () => {
     setlist(false);
@@ -30,8 +66,8 @@ export default function CenterSection(props) {
     important: false,
     description: "",
     date: "",
-    dir: "",
-    completed: false,
+    dir: "Main",
+    completed: true,
     id: "",
   });
   const [task1, setTask1] = useState({
@@ -39,7 +75,7 @@ export default function CenterSection(props) {
     eimportant: false,
     edescription: "",
     edate: "",
-    edir: "",
+    edir: "Main",
     ecompleted: false,
     id: "",
   });
@@ -68,11 +104,11 @@ export default function CenterSection(props) {
       task.important,
       task.completed
     );
-    setId(id + 1);
+    setId(tasks.length+id+1);
     document.getElementById("title").value = "";
     document.getElementById("date").value = "";
     document.getElementById("description").value = "";
-    document.getElementById("dir").value = "";
+    
     document.getElementById("important").checked = false;
     document.getElementById("completed").checked = false;
   };
@@ -85,7 +121,6 @@ export default function CenterSection(props) {
   };
 
   const handleEditClick = () => {
-
     editTask(
       task1.id,
       task1.etitle,
@@ -98,7 +133,7 @@ export default function CenterSection(props) {
     document.getElementById("etitle").value = " ";
     document.getElementById("edate").value = "";
     document.getElementById("edescription").value = "";
-    document.getElementById("edir").value = "";
+    
   };
 
   return (
@@ -208,23 +243,7 @@ export default function CenterSection(props) {
                       />
                     </div>
 
-                    <div className="mb-3">
-                      <label
-                        htmlFor="task-directory"
-                        className="col-form-label"
-                      >
-                        Select a directory
-                      </label>
-                      <select
-                        className="form-control"
-                        name="dir"
-                        id="dir"
-                        onChange={onChange}
-                      >
-                        <option>Main</option>
-                        <option>Sub</option>
-                      </select>
-                    </div>
+                
 
                     <div className="mb-3 input-group mx-3">
                       <input
@@ -262,7 +281,10 @@ export default function CenterSection(props) {
                     type="button"
                     className="btn btn-primary"
                     data-bs-dismiss="modal"
-                    onClick={handleClick}
+                    onClick={()=>{
+                      handleClick()
+                     
+                    }}
                   >
                     Add Task
                   </button>
@@ -402,22 +424,7 @@ export default function CenterSection(props) {
                     />
                   </div>
 
-                  <div className="mb-3">
-                    <label htmlFor="task-directory" className="col-form-label">
-                      Select a directory
-                    </label>
-                    <select
-                      className="form-control"
-                      name="edir"
-                      id="edir"
-                      onChange={onChange_Edit}
-                      value={task1.edir}
-                      defaultValue={task1.edir}
-                    >
-                      <option>Main</option>
-                      <option>Sub</option>
-                    </select>
-                  </div>
+                  
                 </form>
               </div>
               <div className="modal-footer justify-content-center">
@@ -432,8 +439,10 @@ export default function CenterSection(props) {
                   type="button"
                   className="btn btn-primary"
                   data-bs-dismiss="modal"
-                  onClick={()=>{handleEditClick();updateTask(task1)}}
-                  
+                  onClick={() => {
+                    handleEditClick();
+                    updateTask(task1);
+                  }}
                 >
                   Edit Task
                 </button>
@@ -442,7 +451,7 @@ export default function CenterSection(props) {
           </div>
         </div>
 
-        {tasks.map((task, index) => {
+        {array1.map((task, index) => {
           return (
             <Card
               index={index}
@@ -462,9 +471,10 @@ export default function CenterSection(props) {
             />
           );
         })}
-        <span className="col-8">
+
+        {/* <span className="col-8">
           <NewTaskModal isDarkMode={props.isDarkMode} isListView={list} />
-        </span>
+        </span> */}
       </div>
       {/* <footer className="mt-auto fixed-bottom text-center">
           <p className="footer mb-3">

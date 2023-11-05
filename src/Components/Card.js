@@ -3,9 +3,9 @@ import "../Styles/Card.css";
 import NotesContext from "../context/NotesContext";
 
 const Card = (props) => {
-  const context=useContext(NotesContext)
-  const { deleteTask } = context
-  const { updateTask,task}=props
+  const context = useContext(NotesContext);
+  const { deleteTask } = context;
+  const { updateTask, task } = props;
 
   return (
     <>
@@ -31,17 +31,33 @@ const Card = (props) => {
                 type="button"
                 className="btn btn-primary col-6"
                 id="completed"
-                onClick={()=>{props.toggleStatus(props.index)}}
+                onClick={() => {
+                  props.toggleStatus(props.index);
+                }}
               >
                 {props.completed ? "Completed" : "Incomplete"}
               </button>
               <i
-                className={`fa star ${props.important ? 'fa-star':'fa-star-o'} my-2 col-2 fs-4`}
-               onClick={()=>{props.toggleFav(props.index)}}
+                className={`fa star ${
+                  props.important ? "fa-star" : "fa-star-o"
+                } my-2 col-2 fs-4`}
+                onClick={() => {
+                  props.toggleFav(props.index);
+                }}
                 id={`${props.id}`}
               ></i>
-              <i className={`fa fa-trash my-2 col-2 fs-4`} aria-hidden="true" onClick={()=>{deleteTask(props.id)}}></i>
-              <i className="fa fa-edit my-2 col-2 fs-4" aria-hidden="true" onClick={()=>updateTask(task)} ></i>
+              <i
+                className={`fa fa-trash my-2 col-2 fs-4`}
+                aria-hidden="true"
+                onClick={() => {
+                  deleteTask(props.id);
+                }}
+              ></i>
+              <i
+                className="fa fa-edit my-2 col-2 fs-4"
+                aria-hidden="true"
+                onClick={() => updateTask(task)}
+              ></i>
             </div>
           </div>
         </div>

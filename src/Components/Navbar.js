@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 // import Button from './Button'
 import '../Styles/Navbar.css'
 import $ from 'jquery'
-import Directory from './Directory'
 export default function Navbar(props) {
   $('li').click(function(){
     
@@ -16,23 +15,26 @@ export default function Navbar(props) {
     <nav className='nav'>
         <ul className="nav flex-column">
   <li className="nav-item " style={{width:"158%"}}>
+  <Link className="nav-link" to="/">Home</Link>
+  </li>
+  <li className="nav-item " style={{width:"158%"}}>
   <Link className="nav-link" to="/today">Today's Tasks</Link>
   </li>
   <li className="nav-item" style={{width:"158%"}}>
-  <Link className="nav-link " to="/">All Tasks</Link>
+  <Link className="nav-link " to="/all">All Tasks</Link>
   </li>
   <li className="nav-item" style={{width:"158%"}}>
-  <Link className="nav-link " to="/">Important Tasks</Link>
+  <Link className="nav-link " to="/important">Important Tasks</Link>
   </li>
   <li className="nav-item" style={{width:"158%"}}>
-  <Link className="nav-link " to="/">Completed Tasks</Link>
+  <Link className="nav-link " to="/completed">Completed Tasks</Link>
   </li>
   <li className="nav-item" style={{width:"145%"}}>
-  <Link className="nav-link" to="/">Uncompleted Tasks</Link>
+  <Link className="nav-link" to="/incomplete">Incomplete Tasks</Link>
   </li>
 </ul>
     </nav>
-{/* <Directory isDarkMode={props.isDarkMode}/> */}
+
     </>
   )
 }

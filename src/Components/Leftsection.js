@@ -1,6 +1,7 @@
 import React from 'react'
 import Navigation from './Navigation'
 import "../Styles/NewTaskModal.css"
+import Navbar from './Navbar'
 // import AddNewTaskModal from './AddNewTaskModal'
 
 export default function Leftsection(props) {
@@ -9,7 +10,7 @@ export default function Leftsection(props) {
     <h4 className='text-center my-3 text-lg' style={{paddingBottom:"6rem",paddingTop:"2rem"}}>TO-DO LIST</h4>
 
 
-<Navigation isDarkMode={props.isDarkMode}/>
+<Navbar isDarkMode={props.isDarkMode}/>
 
     </>
   )

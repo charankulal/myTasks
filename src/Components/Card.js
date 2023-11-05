@@ -5,7 +5,7 @@ import NotesContext from "../context/NotesContext";
 const Card = (props) => {
   const context=useContext(NotesContext)
   const { deleteTask } = context
-  const { updateTask }=props
+  const { updateTask,task}=props
 
   return (
     <>
@@ -41,7 +41,7 @@ const Card = (props) => {
                 id={`${props.id}`}
               ></i>
               <i className={`fa fa-trash my-2 col-2 fs-4`} aria-hidden="true" onClick={()=>{deleteTask(props.id)}}></i>
-              <i className="fa fa-edit my-2 col-2 fs-4" aria-hidden="true" onClick={()=>updateTask(props.id)} ></i>
+              <i className="fa fa-edit my-2 col-2 fs-4" aria-hidden="true" onClick={()=>updateTask(task)} ></i>
             </div>
           </div>
         </div>

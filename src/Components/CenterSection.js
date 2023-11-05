@@ -5,35 +5,21 @@ import "../Styles/NewTaskModal.css";
 import Card from "./Card";
 import { useContext } from "react";
 import NotesContext from "../context/NotesContext.js";
-// import $ from 'jquery'
+
 
 export default function CenterSection(props) {
-  const { tasks,addTask,editTask,  toggleFav, toggleStatus } = useContext(NotesContext);
+  const { tasks, addTask, editTask, toggleFav, toggleStatus } =
+    useContext(NotesContext);
 
   const ref = useRef(null)
   var date = new Date().toDateString();
   const [list, setlist] = useState(false);
-  const [id,setId]=useState(3)
+  const [id, setId] = useState(3);
 
   const listView = () => {
     setlist(true);
     console.log(list);
   };
-
-  const updateTask = (currentNote) => {
-    ref.current.click();
-    setTask({
-      eid: currentNote.id,
-      eimportant: currentNote.important,
-    edescription:currentNote.description,
-    edate: currentNote.date,
-    edir: currentNote.dir,
-    ecompleted: currentNote.completed,
-      
-    });
-  };
-
-
 
   const gridView = () => {
     setlist(false);
@@ -47,22 +33,73 @@ export default function CenterSection(props) {
     completed: false,
     id: "",
   });
+  const [task1, setTask1] = useState({
+    etitle: "",
+    eimportant: false,
+    edescription: "",
+    edate: "",
+    edir: "",
+    ecompleted: false,
+    id: "",
+  });
+
+  const updateTask = (currentNote) => {
+    ref.current.click();
+    console.log(currentNote.id);
+    setTask1({
+      id: currentNote.id,
+      etitle: currentNote.title,
+      eimportant: currentNote.important,
+      edescription: currentNote.description,
+      edate: currentNote.date,
+      edir: currentNote.dir,
+      ecompleted: currentNote.completed,
+    });
+  };
 
   const handleClick = () => {
     console.log("Clicked");
-    addTask(id,task.title,task.description,task.date,task.dir,task.important,task.completed)
-    setId(id+1)
+    addTask(
+      id,
+      task.title,
+      task.description,
+      task.date,
+      task.dir,
+      task.important,
+      task.completed
+    );
+    setId(id + 1);
     document.getElementById("title").value = "";
     document.getElementById("date").value = "";
     document.getElementById("description").value = "";
     document.getElementById("dir").value = "";
     document.getElementById("important").value = false;
-    document.getElementById("completed").value = false
-
-    
+    document.getElementById("completed").value = false;
   };
   const onChange = (e) => {
     setTask({ ...task, [e.target.name]: e.target.value });
+  };
+  //Edit functions
+  const onChange_Edit = (e) => {
+    setTask1({ ...task1, [e.target.name]: e.target.value });
+  };
+
+  const handleEditClick = () => {
+    editTask(
+      task1.id,
+      task1.etitle,
+      task1.edescription,
+      task1.edate,
+      task1.edir,
+      task1.eimportant,
+      task1.ecompleted
+    );
+    document.getElementById("etitle").value = " ";
+    document.getElementById("edate").value = "";
+    document.getElementById("edescription").value = "";
+    document.getElementById("edir").value = "";
+    document.getElementById("eimportant").checked = false;
+    document.getElementById("ecompleted").checked = false;
   };
 
   return (
@@ -93,12 +130,11 @@ export default function CenterSection(props) {
           </svg>
         </div>
         <div className="col">
-        <button
+          <button
             type="button"
             className="btn btn-primary text-center align-center my-4"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal2"
-            
           >
             Add a Task
           </button>
@@ -285,148 +321,152 @@ export default function CenterSection(props) {
           </div>
         </div>
         <button
-            type="button"
-            className="btn btn-primary text-center align-center my-4"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal3"
-            ref={ref}
-          >
-            Edit Task
-          </button>
+          type="button"
+          className="btn btn-primary text-center align-center my-4 d-none"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal3"
+          ref={ref}
+        >
+          Edit Task
+        </button>
 
-          <div
-            className={`modal fade ${
-              props.isDarkMode ? "dark-mode " : "light-mode "
-            }`}
-            id="exampleModal3"
-            tabIndex="-1"
-            aria-labelledby="exampleModalLabel"
-            data-bs-theme={`${props.isDarkMode ? "dark" : "light"}`}
-            aria-hidden="true"
-          >
-            <div className="modal-dialog">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h1 className="modal-title fs-5" id="exampleModalLabel">
-                    Edit the Task
-                  </h1>
-                  <button
-                    type="button"
-                    className="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div className="modal-body">
-                  <form>
-                    <div className="mb-3">
-                      <label htmlFor="task-name" className="col-form-label">
-                        Title
-                      </label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="title"
-                        placeholder="Eg : Study for the exam"
-                        name="title"
-                        onChange={onChange}
-                      />
-                    </div>
+        <div
+          className={`modal fade ${
+            props.isDarkMode ? "dark-mode " : "light-mode "
+          }`}
+          id="exampleModal3"
+          tabIndex="-1"
+          aria-labelledby="exampleModalLabel"
+          data-bs-theme={`${props.isDarkMode ? "dark" : "light"}`}
+          aria-hidden="true"
+        >
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h1 className="modal-title fs-5" id="exampleModalLabel">
+                  Edit the Task
+                </h1>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div className="modal-body">
+                <form>
+                  <div className="mb-3">
+                    <label htmlFor="task-name" className="col-form-label">
+                      Title
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="etitle"
+                      placeholder="Eg : Study for the exam"
+                      name="etitle"
+                      value={task1.etitle}
+                      onChange={onChange_Edit}
+                    />
+                  </div>
 
-                    <div className="mb-3">
-                      <label htmlFor="task-date" className="col-form-label">
-                        Date
-                      </label>
-                      <input
-                        type="datetime-local"
-                        className="form-control"
-                        id="date"
-                        placeholder="DD-MM-YYYY"
-                        name="date"
-                        onChange={onChange}
-                      />
-                    </div>
+                  <div className="mb-3">
+                    <label htmlFor="task-date" className="col-form-label">
+                      Date
+                    </label>
+                    <input
+                      type="datetime-local"
+                      className="form-control"
+                      id="edate"
+                      placeholder="DD-MM-YYYY"
+                      name="edate"
+                      value={task1.edate}
+                      onChange={onChange_Edit}
+                    />
+                  </div>
 
-                    <div className="mb-3">
-                      <label
-                        htmlFor="task-description"
-                        className="col-form-label"
-                      >
-                        Description (Optional)
-                      </label>
-                      <textarea
-                        type="text-area"
-                        className="form-control"
-                        id="description"
-                        placeholder="Eg : Study for the exam"
-                        name="description"
-                        onChange={onChange}
-                      />
-                    </div>
+                  <div className="mb-3">
+                    <label
+                      htmlFor="task-description"
+                      className="col-form-label"
+                    >
+                      Description (Optional)
+                    </label>
+                    <textarea
+                      type="text-area"
+                      className="form-control"
+                      id="edescription"
+                      placeholder="Eg : Study for the exam"
+                      name="edescription"
+                      onChange={onChange_Edit}
+                      value={task1.edescription}
+                    />
+                  </div>
 
-                    <div className="mb-3">
-                      <label
-                        htmlFor="task-directory"
-                        className="col-form-label"
-                      >
-                        Select a directory
-                      </label>
-                      <select
-                        className="form-control"
-                        name="dir"
-                        id="dir"
-                        onChange={onChange}
-                      >
-                        <option>Main</option>
-                        <option>Sub</option>
-                      </select>
-                    </div>
+                  <div className="mb-3">
+                    <label htmlFor="task-directory" className="col-form-label">
+                      Select a directory
+                    </label>
+                    <select
+                      className="form-control"
+                      name="edir"
+                      id="edir"
+                      onChange={onChange_Edit}
+                      value={task1.edir}
+                    >
+                      <option>Main</option>
+                      <option>Sub</option>
+                    </select>
+                  </div>
 
-                    <div className="mb-3 input-group mx-3">
-                      <input
-                        className="mx-3 checkbox"
-                        type="checkbox"
-                        name="important"
-                        id="important"
-                        onChange={onChange}
-                      />
+                  <div className="mb-3 input-group mx-3">
+                    <input
+                      className="mx-3 checkbox"
+                      type="checkbox"
+                      name="eimportant"
+                      id="eimportant"
+                      checked={task1.eimportant}
+                      onChange={onChange_Edit}
+                    />
 
-                      <span className="text">Mark as important</span>
-                    </div>
-                    <div className="mb-3 input-group mx-3">
-                      <input
-                        className="mx-3 checkbox"
-                        type="checkbox"
-                        id="completed"
-                        name="completed"
-                        onChange={onChange}
-                      />
+                    <span className="text">Mark as important</span>
+                  </div>
+                  <div className="mb-3 input-group mx-3">
+                    <input
+                      className="mx-3 checkbox"
+                      type="checkbox"
+                      id="ecompleted"
+                      name="ecompleted"
+                      checked={task1.ecompleted}
+                      value={task1.ecompleted}
+                      onChange={onChange_Edit}
+                    />
 
-                      <span className="text">Mark as Completed</span>
-                    </div>
-                  </form>
-                </div>
-                <div className="modal-footer justify-content-center">
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-primary"
-                    data-bs-dismiss="modal"
-                    // onClick={handleClick}
-                  >
-                    Edit Task
-                  </button>
-                </div>
+                    <span className="text">Mark as Completed</span>
+                  </div>
+                </form>
+              </div>
+              <div className="modal-footer justify-content-center">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  data-bs-dismiss="modal"
+                  onClick={handleEditClick}
+                >
+                  Edit Task
+                </button>
               </div>
             </div>
           </div>
-        
+        </div>
+
         {tasks.map((task, index) => {
           return (
             <Card

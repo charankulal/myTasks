@@ -4,6 +4,7 @@ import NotesContext from "./NotesContext";
 
 const NotesState = (props) => {
 
+
   const directoryInitial=[
     {
       title: "Main",
@@ -103,7 +104,7 @@ const NotesState = (props) => {
   };
 
   // Edit Task
-  const editTask = async (id,title,description,date,dir,important,completed) => {
+  const editTask = (id,title,description,date,dir,important,completed) => {
     for (let index = 0; index < tasks.length; index++) {
       let element = tasks[index];
       if (element.id === id) {
@@ -117,6 +118,17 @@ const NotesState = (props) => {
       }
     }
   }
+  const onChange_Search=(title)=>{
+    if(title===''){
+  setTasks(...[tasks])
+  }
+  else{
+    let newTasks = tasks.filter((task) => {
+      return task.title.includes(title)
+    });
+    setTasks(newTasks);
+  }
+  }
 
 
   return (
@@ -126,6 +138,7 @@ const NotesState = (props) => {
         setTasks,
         addTask,
         editTask,
+        onChange_Search,
         deleteTask,
         toggleFav,
         toggleStatus,

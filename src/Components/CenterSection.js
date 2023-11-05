@@ -7,7 +7,7 @@ import { useContext } from "react";
 import NotesContext from "../context/NotesContext.js";
 
 export default function CenterSection(props) {
-  const { tasks, addTask, editTask, toggleFav, toggleStatus } =
+  const { tasks, addTask, editTask, toggleFav, toggleStatus ,onChange_Search} =
     useContext(NotesContext);
   const array1 = [];
   const ref = useRef(null);
@@ -119,6 +119,7 @@ export default function CenterSection(props) {
   const onChange_Edit = (e) => {
     setTask1({ ...task1, [e.target.name]: e.target.value });
   };
+  
 
   const handleEditClick = () => {
     editTask(
@@ -146,7 +147,7 @@ export default function CenterSection(props) {
             placeholder="Search Task"
             aria-label="Search"
             data-bs-theme={`${props.isDarkMode ? "dark" : "light"}`}
-            // style={{color:"red",backgroundColor:"#e0cfcf"}}
+            onKeyDown={event=>onChange_Search(event.target.value)}
           />
         </form>
         <span className="col my-4"> {`${date}`}</span>

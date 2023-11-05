@@ -14,7 +14,7 @@ const Card = (props) => {
         }`}
         data-bs-theme={`${props.isDarkMode ? "dark" : "light"}`}
       >
-        <span className="directorybutton">Main</span>
+        <span className="directorybutton">{props.dir}</span>
         <div className="card">
           <div className="card-body">
             <h5 className="card-title">{props.title}</h5>

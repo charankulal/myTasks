@@ -86,12 +86,27 @@ const NotesState = (props) => {
     setTasks(newTasks);
   };
 
+  // Edit Task
+  const editTask = async (id,title,description,date,dir,important,completed) => {
+    for (let index = 0; index < tasks.length; index++) {
+      let element = tasks[index];
+      if (element.id === id) {
+        element.title = title;
+        element.description = description;
+        element.date = date;
+        element.dir = dir;
+        element.important = important;
+        element.completed = completed;
+      }
+    }
+  }
   return (
     <NotesContext.Provider
       value={{
         tasks,
         setTasks,
         addTask,
+        editTask,
         deleteTask,
         toggleFav,
         toggleStatus

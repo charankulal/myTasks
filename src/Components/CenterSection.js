@@ -7,14 +7,16 @@ import { useContext } from "react";
 import NotesContext from "../context/NotesContext.js";
 
 export default function CenterSection(props) {
+  // eslint-disable-next-line
   const { tasks, addTask, editTask, toggleFav, toggleStatus ,onChange_Search} =
     useContext(NotesContext);
   const array1 = [];
   const ref = useRef(null);
   var date = new Date().toDateString();
-
+ const [mainArray,setMainArray] =useState(array1)
   const [list, setlist] = useState(false);
   const [id, setId] = useState(3);
+  const [search, setSearch] = useState(false);
 
   const listView = () => {
     setlist(true);
@@ -32,8 +34,10 @@ export default function CenterSection(props) {
 
       if (compValue === 0) {
         array1.push(tasks[i]);
+
       }
     }
+    
   } else if (props.navlink === "" || props.navlink === "all") {
     for (i = 0; i < tasks.length; i++) {
       array1.push(tasks[i]);
@@ -57,7 +61,15 @@ export default function CenterSection(props) {
       }
     }
   }
-
+  
+  const handleSearch=(searchKey)=>{
+    setSearch(true)
+    console.log(array1)
+  let mainArray=array1.filter((ele)=>{
+    return ele.title.includes(searchKey)
+  })
+  setMainArray(mainArray)
+}
   const gridView = () => {
     setlist(false);
   };
@@ -120,6 +132,9 @@ export default function CenterSection(props) {
     setTask1({ ...task1, [e.target.name]: e.target.value });
   };
   
+  const handleBlur=()=>{
+    setSearch(false)
+  }
 
   const handleEditClick = () => {
     editTask(
@@ -147,7 +162,8 @@ export default function CenterSection(props) {
             placeholder="Search Task"
             aria-label="Search"
             data-bs-theme={`${props.isDarkMode ? "dark" : "light"}`}
-            onKeyDown={event=>onChange_Search(event.target.value)}
+            onInput={event=>handleSearch(event.target.value)}
+            onBlur={handleBlur}
           />
         </form>
         <span className="col my-4"> {`${date}`}</span>
@@ -327,20 +343,7 @@ export default function CenterSection(props) {
               <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
             </svg>
           </div>
-          {/* <div className="col-3 align-self-end">
-            <select
-              className="form-select sortlist"
-              aria-label="Default select example"
-              data-bs-theme={`${props.isDarkMode ? "dark" : "light"}`}
-            >
-              <option defaultValue={true}>Sort by</option>
-              <option value="1">Order Added</option>
-              <option value="2">Earliest First</option>
-              <option value="3">Older First</option>
-              <option value="4">Completed First</option>
-              <option value="5">Uncompleted First</option>
-            </select>
-          </div> */}
+
         </div>
         <button
           type="button"
@@ -452,7 +455,27 @@ export default function CenterSection(props) {
           </div>
         </div>
 
-        {array1.map((task, index) => {
+        { search===true?
+        mainArray.map((task, index) => {
+          return (
+            <Card
+              index={index}
+              toggleFav={toggleFav}
+              toggleStatus={toggleStatus}
+              isListView={list}
+              isDarkMode={props.isDarkMode}
+              title={task.title}
+              important={task.important}
+              description={task.description}
+              date={task.date}
+              dir={task.dir}
+              completed={task.completed}
+              id={task.id}
+              updateTask={updateTask}
+              task={task}
+            />
+          );
+        }):array1.map((task, index) => {
           return (
             <Card
               index={index}
@@ -472,31 +495,7 @@ export default function CenterSection(props) {
             />
           );
         })}
-
-        {/* <span className="col-8">
-          <NewTaskModal isDarkMode={props.isDarkMode} isListView={list} />
-        </span> */}
       </div>
-      {/* <footer className="mt-auto fixed-bottom text-center">
-          <p className="footer mb-3">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              className="bi bi-github"
-              viewBox="0 0 16 16"
-            >
-              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-            </svg>
-            <a
-              className="no-text-decoration link-offset-2 link-underline link-underline-opacity-0 mx-2"
-              href="https://github.com/charankulal"
-            >
-              Charan-k-github
-            </a>
-          </p>
-        </footer> */}
     </>
   );
 }

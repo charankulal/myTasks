@@ -119,6 +119,7 @@ const NotesState = (props) => {
     }
   }
   const onChange_Search=(title)=>{
+    console.log(title)
     if(title===''){
   setTasks(...[tasks])
   }

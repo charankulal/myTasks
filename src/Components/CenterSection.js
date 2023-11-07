@@ -8,12 +8,12 @@ import NotesContext from "../context/NotesContext.js";
 
 export default function CenterSection(props) {
   // eslint-disable-next-line
-  const { tasks, addTask, editTask, toggleFav, toggleStatus ,onChange_Search} =
+  const { tasks, addTask,setTasks, editTask, toggleFav, toggleStatus } =
     useContext(NotesContext);
   const array1 = [];
   const ref = useRef(null);
   var date = new Date().toDateString();
- const [mainArray,setMainArray] =useState(array1)
+  const [mainArray, setMainArray] = useState(array1);
   const [list, setlist] = useState(false);
   const [id, setId] = useState(3);
   const [search, setSearch] = useState(false);
@@ -34,10 +34,8 @@ export default function CenterSection(props) {
 
       if (compValue === 0) {
         array1.push(tasks[i]);
-
       }
     }
-    
   } else if (props.navlink === "" || props.navlink === "all") {
     for (i = 0; i < tasks.length; i++) {
       array1.push(tasks[i]);
@@ -61,15 +59,15 @@ export default function CenterSection(props) {
       }
     }
   }
-  
-  const handleSearch=(searchKey)=>{
-    setSearch(true)
-    console.log(array1)
-  let mainArray=array1.filter((ele)=>{
-    return ele.title.includes(searchKey)
-  })
-  setMainArray(mainArray)
-}
+
+  const handleSearch = (searchKey) => {
+    setSearch(true);
+    console.log(array1);
+    let mainArray = array1.filter((ele) => {
+      return ele.title.includes(searchKey);
+    });
+    setMainArray(mainArray);
+  };
   const gridView = () => {
     setlist(false);
   };
@@ -116,11 +114,11 @@ export default function CenterSection(props) {
       task.important,
       task.completed
     );
-    setId(tasks.length+id+1);
+    setId(tasks.length + id + 1);
     document.getElementById("title").value = "";
     document.getElementById("date").value = "";
     document.getElementById("description").value = "";
-    
+
     document.getElementById("important").checked = false;
     document.getElementById("completed").checked = false;
   };
@@ -131,10 +129,10 @@ export default function CenterSection(props) {
   const onChange_Edit = (e) => {
     setTask1({ ...task1, [e.target.name]: e.target.value });
   };
-  
-  const handleBlur=()=>{
-    setSearch(false)
-  }
+
+  const handleBlur = () => {
+    setSearch(false);
+  };
 
   const handleEditClick = () => {
     editTask(
@@ -149,8 +147,11 @@ export default function CenterSection(props) {
     document.getElementById("etitle").value = " ";
     document.getElementById("edate").value = "";
     document.getElementById("edescription").value = "";
-    
   };
+
+  const handleDelete=()=>{
+    setTasks([])
+  }
 
   return (
     <>
@@ -162,7 +163,7 @@ export default function CenterSection(props) {
             placeholder="Search Task"
             aria-label="Search"
             data-bs-theme={`${props.isDarkMode ? "dark" : "light"}`}
-            onInput={event=>handleSearch(event.target.value)}
+            onInput={(event) => handleSearch(event.target.value)}
             onBlur={handleBlur}
           />
         </form>
@@ -180,7 +181,7 @@ export default function CenterSection(props) {
             <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
           </svg>
         </div>
-        <div className="col">
+        <div className="col-4">
           <button
             type="button"
             className="btn btn-primary text-center align-center my-4"
@@ -188,6 +189,13 @@ export default function CenterSection(props) {
             data-bs-target="#exampleModal2"
           >
             Add a Task
+          </button>
+          <button
+            type="button"
+            className="btn btn-danger mx-2"
+            onClick={handleDelete}
+          >
+            Delete All Data
           </button>
 
           <div
@@ -260,8 +268,6 @@ export default function CenterSection(props) {
                       />
                     </div>
 
-                
-
                     <div className="mb-3 input-group mx-3">
                       <input
                         className="mx-3 checkbox"
@@ -298,9 +304,8 @@ export default function CenterSection(props) {
                     type="button"
                     className="btn btn-primary"
                     data-bs-dismiss="modal"
-                    onClick={()=>{
-                      handleClick()
-                     
+                    onClick={() => {
+                      handleClick();
                     }}
                   >
                     Add Task
@@ -343,7 +348,6 @@ export default function CenterSection(props) {
               <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
             </svg>
           </div>
-
         </div>
         <button
           type="button"
@@ -427,8 +431,6 @@ export default function CenterSection(props) {
                       value={task1.edescription}
                     />
                   </div>
-
-                  
                 </form>
               </div>
               <div className="modal-footer justify-content-center">
@@ -455,46 +457,47 @@ export default function CenterSection(props) {
           </div>
         </div>
 
-        { search===true?
-        mainArray.map((task, index) => {
-          return (
-            <Card
-              index={index}
-              toggleFav={toggleFav}
-              toggleStatus={toggleStatus}
-              isListView={list}
-              isDarkMode={props.isDarkMode}
-              title={task.title}
-              important={task.important}
-              description={task.description}
-              date={task.date}
-              dir={task.dir}
-              completed={task.completed}
-              id={task.id}
-              updateTask={updateTask}
-              task={task}
-            />
-          );
-        }):array1.map((task, index) => {
-          return (
-            <Card
-              index={index}
-              toggleFav={toggleFav}
-              toggleStatus={toggleStatus}
-              isListView={list}
-              isDarkMode={props.isDarkMode}
-              title={task.title}
-              important={task.important}
-              description={task.description}
-              date={task.date}
-              dir={task.dir}
-              completed={task.completed}
-              id={task.id}
-              updateTask={updateTask}
-              task={task}
-            />
-          );
-        })}
+        {search === true
+          ? mainArray.map((task, index) => {
+              return (
+                <Card
+                  index={index}
+                  toggleFav={toggleFav}
+                  toggleStatus={toggleStatus}
+                  isListView={list}
+                  isDarkMode={props.isDarkMode}
+                  title={task.title}
+                  important={task.important}
+                  description={task.description}
+                  date={task.date}
+                  dir={task.dir}
+                  completed={task.completed}
+                  id={task.id}
+                  updateTask={updateTask}
+                  task={task}
+                />
+              );
+            })
+          : array1.map((task, index) => {
+              return (
+                <Card
+                  index={index}
+                  toggleFav={toggleFav}
+                  toggleStatus={toggleStatus}
+                  isListView={list}
+                  isDarkMode={props.isDarkMode}
+                  title={task.title}
+                  important={task.important}
+                  description={task.description}
+                  date={task.date}
+                  dir={task.dir}
+                  completed={task.completed}
+                  id={task.id}
+                  updateTask={updateTask}
+                  task={task}
+                />
+              );
+            })}
       </div>
     </>
   );

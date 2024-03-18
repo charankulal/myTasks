@@ -1,5 +1,4 @@
 import React from 'react'
-import Navigation from './Navigation'
 import "../Styles/NewTaskModal.css"
 import Navbar from './Navbar'
 // import AddNewTaskModal from './AddNewTaskModal'

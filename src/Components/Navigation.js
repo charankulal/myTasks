@@ -6,7 +6,6 @@ import CompletedTasks from "./CompletedTasks";
 import UncompletedTasks from "./UncompletedTasks";
 import ImportantTasks from "./ImportantTasks";
 import Navbar from "./Navbar";
-import CenterSection from "./CenterSection";
 
 
 export default function Navigation(props) {

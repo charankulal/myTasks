@@ -15,12 +15,12 @@ const Card = (props) => {
         }`}
         data-bs-theme={`${props.isDarkMode ? "dark" : "light"}`}
       >
-        <span className="directorybutton">{props.dir}</span>
+        {/* <span className="directorybutton">{props.completed ? "Completed" : "Due"}</span> */}
         <div className="card">
           <div className="card-body">
-            <h5 className="card-title">{props.title}</h5>
+            <h5 className="card-title">Title: {props.title}</h5>
             <h6 className="card-subtitle mb-2 text-body-secondary">
-              {props.description}
+              Description: {props.description}
             </h6>
             <time className="mt-auto flex w-full">
               <i className="bi bi-calendar-check mx-2"></i>

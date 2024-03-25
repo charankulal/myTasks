@@ -55,7 +55,9 @@ export default function Progressbar() {
 
       <p>{array1.length === 0 ? "No" : array1.length} tasks for today</p>
       {array1.map((arr) => {
-        return <p className="text text-danger">{arr.title} is not Completed</p>;
+        return (
+          <button className="btn btn-outline-danger" disabled>{arr.title} is due!!</button>
+        )
       })}
     </>
   );

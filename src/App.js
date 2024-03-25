@@ -68,6 +68,11 @@ function App() {
         <CenterSection navlink="incomplete" isDarkMode={isDarkMode}/>
     </div>
     }/>
+    <Route  path="/about" element={
+      <div className={`col-8 px-4 center ${isDarkMode ? 'dark-mode' : 'light-mode'} `} >
+        <CenterSection navlink="about" isDarkMode={isDarkMode}/>
+    </div>
+    }/>
     </Routes>
     
     

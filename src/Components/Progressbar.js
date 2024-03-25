@@ -1,7 +1,7 @@
 import React from "react";
 // import Button from "./Button";
 import { useContext } from "react";
-import NotesContext from "../context/NotesContext.js";
+import NotesContext from "../Context/NotesContext.js";
 
 export default function Progressbar() {
   const { tasks } = useContext(NotesContext);

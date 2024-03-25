@@ -1,12 +1,12 @@
-import Leftsection from './Components/Leftsection';
-import CenterSection from './Components/CenterSection';
-import RightSection from './Components/RightSection';
-import Progressbar from './Components/Progressbar';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useState } from 'react';
-import './Darkmode.css'
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import './App.css';
-import NotesState from './context/NotesState';
+import CenterSection from './Components/CenterSection';
+import Leftsection from './Components/Leftsection';
+import Progressbar from './Components/Progressbar';
+import RightSection from './Components/RightSection';
+import NotesState from './Context/NotesState';
+import './Darkmode.css';
 
 
 function App() {

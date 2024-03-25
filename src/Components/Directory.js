@@ -1,9 +1,9 @@
 import React from "react";
 // import { Link } from "react-router-dom";
-import "../Styles/Navbar.css";
 import $ from "jquery";
 import { useContext } from "react";
-import NotesContext from "../context/NotesContext.js";
+import NotesContext from "../Context/NotesContext.js";
+import "../Styles/Navbar.css";
 
 export default function Directory(props) {
   $(document).ready(function () {

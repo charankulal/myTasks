@@ -1,10 +1,9 @@
-import React, { useState, useRef } from "react";
+import React, { useContext, useRef, useState } from "react";
 import "../Styles/CenterSection.css";
 import "../Styles/NewTaskModal.css";
 import Card from "./Card";
-import { useContext } from "react";
 
-import NotesContext from "../context/NotesContext.js";
+import NotesContext from "../Context/NotesContext.js";
 
 export default function CenterSection(props) {
   // eslint-disable-next-line

@@ -1,6 +1,7 @@
 .nav-item{
     font-size: 1.2rem;
-    
+    text-decoration: none;
+
     
 }
 .nav-item:hover{
@@ -23,7 +24,13 @@
 
 
 .nav-link{
-    color: blue;
+    color: black;
+    font-weight: bold;
+
+}
+.nav-link.dark-mode{
+    color: rgb(255, 255, 255);
+    font-weight: bold;
 }
 .nav-link:hover{
     color: black;

@@ -28,7 +28,7 @@ function App() {
     
     <div className={`row app ${isDarkMode ? 'dark-mode' : 'light-mode'} min-vh-100`} style={{
                     width: '100%', height: '100%',
-                    overflowX: 'hidden', overflowY: 'auto'
+                    overflowX: 'hidden', overflowY: 'hidden'
                 }}>
     <button type="button" 
         data-toggle="collapse" 

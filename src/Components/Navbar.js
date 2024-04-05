@@ -12,7 +12,7 @@ export default function Navbar(props) {
 });
   return (
     <>
-    <nav className='nav'>
+    <nav className='nav text-decoration-none'>
         <ul className="nav flex-column">
   <li className="nav-item " style={{width:"140%"}}>
   <Link className="nav-link" to="/">Home</Link>

@@ -26,14 +26,17 @@ function App() {
   return (
     <NotesState>
     
-    <div className={`row app ${isDarkMode ? 'dark-mode' : 'light-mode'} min-vh-100`}>
+    <div className={`row app ${isDarkMode ? 'dark-mode' : 'light-mode'} min-vh-100`} style={{
+                    width: '100%', height: '100%',
+                    overflowX: 'hidden', overflowY: 'auto'
+                }}>
     <button type="button" 
         data-toggle="collapse" 
         data-target="#filters" 
         className="col-1 btn visible-xs visible-sm collapsed d-none"
         >Filter</button>
         <Router>
-    <div className={`col left ${isDarkMode ? 'dark-mode' : 'light-mode'}`} id="filters">
+    <div className={`col-2 left ${isDarkMode ? 'dark-mode' : 'light-mode'}`} id="filters">
     
       <Leftsection isDarkMode={isDarkMode}/>
     </div>
@@ -81,7 +84,7 @@ function App() {
      
     
     
-    <div className={`col align-items-end right ${isDarkMode ? 'dark-mode' : 'light-mode'}  `}>
+    <div className={`col-2 align-items-end right ${isDarkMode ? 'dark-mode' : 'light-mode'}  `}>
     
       <RightSection/>
       <p className="px-4 " >Switch Mode</p>
